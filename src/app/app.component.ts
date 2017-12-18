@@ -10,31 +10,13 @@ const DOGS_KEY = makeStateKey('dogs');
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-  title = 'app';
-
-  dogs: any;
-
   constructor(
-    private http: HttpClient,
-    private state: TransferState,
     private titleService: Title,
     private metaService: Meta
   ) { }
 
   ngOnInit() {
-    this.dogs = this.state.get(DOGS_KEY, null as any);
-
-    if (!this.dogs) {
-      this.http
-        .get('https://dog.ceo/api/breeds/list/all')
-        .subscribe(data => {
-          this.dogs = data;
-          this.state.set(DOGS_KEY, data as any);
-        });
-    }
-
-    this.titleService.setTitle('My server side rendered title!');
-    this.metaService.addTag({name: 'description', content: 'My server side rendered description'});
+    this.titleService.setTitle('Pasta Pirate');
+    this.metaService.addTag({name: 'description', content: 'Avec votre équipage gérez votre butin, partez remplir la cale de votre navire et gérer vos cartes aux trésor. Ou alors faites juste à manger.'});
   }
 }

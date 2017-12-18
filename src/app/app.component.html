@@ -1,12 +1,52 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-</div>
-<div>
-  <a routerLink="">Home</a>
-  <span>|</span>
-  <a routerLink="about">About</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" routerLink="/">
+    <img src="/assets/images/pirate-logo.png" alt="Logo pirate" height="50">
+    Pasta Pirate
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/">Aller sur le pont</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#">Vérifier le trésor</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#">Voir la liste des cartes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#">Plannifier un abordage</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#">Piller un galion</a>
+      </li>
+    </ul>
+    <!-- Mettre ici le truc de l'utilisateur -->
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row crew-panel py-3">
+    <div class="col-xs-12 col-sm-2 px-5">
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 px-0 pt-2">
+          <img src="/assets/images/captain.png" class="img-fluid" alt="">
+        </div>
+        <div class="col-xs-8 col-sm-8">
+          <h4 class="mb-1 mt-3">MisterTakaashi</h4>
+          <p class="mb-2">Capitaine</p>
+          <em>Arr, arr !</em>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-3 px-5 ml-auto text-center">
+      <h5 class="font-weight-bold">Recrutez de nouveaux membres d'équipage</h5>
+      <p>Invitez des amis à rejoindre votre équipage. <br>Quoi de mieux que piller des gallions à deux ?</p>
+      <button class="btn btn-success">Recruter des mousaillons</button>
+    </div>
+  </div>
 </div>
 <router-outlet></router-outlet>
-<pre>{{ dogs | json}}</pre>

@@ -1,0 +1,23 @@
+@import "../../../variables";
+
+.card {
+  &.border-primary {
+    .card-header {
+      background-color: $primary;
+    }
+  }
+
+  &.border-info {
+    .card-header {
+      background-color: $info;
+    }
+  }
+
+  .card-header {
+    color: $white;
+  
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+}

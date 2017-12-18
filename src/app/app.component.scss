@@ -1,0 +1,17 @@
+@import "../variables";
+
+.nav-item {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.crew-panel {
+  background-color: lighten($blue, 5%);
+
+  color: $white;
+
+  h4 {
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+  }
+}
