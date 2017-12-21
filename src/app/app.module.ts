@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 
@@ -21,7 +22,8 @@ import { AppComponent } from './app.component';
     BrowserModule.withServerTransition({ appId: 'universal-demo-v5' }),
     HttpClientModule,
     BrowserTransferStateModule,
-    RoutingModule
+    RoutingModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

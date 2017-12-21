@@ -21,3 +21,19 @@
     font-size: 1.3rem;
   }
 }
+
+.stock {
+  .stock-item {
+    .stock-item-content {
+      background-color: $primary;
+    }
+
+    .stock-item-name {
+      color: $white;
+    }
+
+    .stock-item-quantity {
+      color: $white;
+    }
+  }
+}
