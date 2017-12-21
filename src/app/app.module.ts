@@ -7,6 +7,11 @@ import { RoutingModule } from './app.router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 
+import { StockService } from './services/stock.service';
+import { FakeStockService } from './services/fake.stock.service';
+
+import { QuantityPipe } from './pipes/quantity.pipe';
+
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -17,7 +22,8 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    QuantityPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'universal-demo-v5' }),
@@ -28,7 +34,9 @@ import { AppComponent } from './app.component';
     BsDropdownModule.forRoot(),
     AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    {provide: StockService, useClass: FakeStockService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
