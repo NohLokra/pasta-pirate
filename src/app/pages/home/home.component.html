@@ -14,7 +14,7 @@
                 <small>Entrée</small>
               </div>
               <p class="mb-1">Choux, tchoins, salade, truc.</p>
-              <small><fa name="check"></fa>Déjà goutée <fa name="clock-o"></fa>00h20</small>
+              <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>00h20</small>
             </a>
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
@@ -22,7 +22,7 @@
                 <small>Plat</small>
               </div>
               <p class="mb-1">Salade, tomate, tchoin, oignons, steak.</p>
-              <small><fa name="times"></fa>Jamais réalisée <fa name="clock-o"></fa>01h20</small>
+              <small><fa name="times"></fa>Jamais réalisée &nbsp;&nbsp; <fa name="clock-o"></fa>01h20</small>
             </a>
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
@@ -30,8 +30,54 @@
                 <small>Dessert</small>
               </div>
               <p class="mb-1">Choux, tchoins, salade, truc.</p>
-              <small><fa name="check"></fa>Déjà goutée <fa name="clock-o"></fa>05h50</small>
+              <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>05h50</small>
             </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-3">
+      <div class="card border-primary mb-3 w-100">
+        <div class="card-header px-3">Cale du navire</div>
+        <div class="card-body px-3 pt-3 pb-0 stock">
+          <div class="row">
+            <div class="col-xs-3 col-sm-3 px-0 text-center stock-item mb-3" *ngFor="let truc of [0,1,2,3,4]">
+              <div class="mx-2 py-3 stock-item-content rounded">
+                <img src="/assets/images/icons/coin.png" class="mb-2" width="32" width="32">
+                <h5 class="mb-0 stock-item-name">Carottes</h5>
+                <h6 class="my-0 font-weight-bold stock-item-quantity">6</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-3">
+      <div class="card border-primary mb-3 w-100">
+        <div class="card-header px-3">Carte au trésor actuelle</div>
+        <div class="card-body px-3 pt-3 pb-0 recipe">
+          <div class="row">
+            <div class="col-12">
+              <h3><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="32" width="32">Salade de tchoins</h3>
+              
+              <div class="d-flex w-100 justify-content-between">
+                <h5>Ingrédients</h5>
+                <small>Plat</small>
+              </div>
+              
+              <ul class="mx-3 recipe-ingredients-list">
+                <li class="p-1 rounded font-italic"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Choux (4g) <fa name="check" class="float-right text-success"></fa></li>
+                <li class="p-1 rounded font-italic"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Tchoins (69g) <fa name="times" class="float-right text-danger"></fa></li>
+                <li class="p-1 rounded font-italic"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Salade (200g) <fa name="check" class="float-right text-success"></fa></li>
+                <li class="p-1 rounded font-italic"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Truc (20g) <fa name="check" class="float-right text-success"></fa></li>
+              </ul>
+              
+              <h5>Recette</h5>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos soluta aspernatur a odit dignissimos doloremque obcaecati? Quas hic quibusdam at laborum tenetur accusantium error expedita. Numquam maxime similique culpa cum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum harum temporibus exercitationem, omnis repudiandae delectus beatae saepe voluptate nihil, veritatis sequi ab ullam, iusto quos aperiam sit alias rem fugiat?</p>
+            </div>
           </div>
         </div>
       </div>
@@ -39,14 +85,22 @@
 
     <div class="col-xs-12 col-sm-3">
         <div class="card border-primary mb-3 w-100">
-          <div class="card-header px-3">Cale du navire</div>
-          <div class="card-body px-3 py-3 stock">
+          <div class="card-header px-3">Prochain gallion en vue</div>
+          <div class="card-body px-3 pt-3 pb-0 shopping">
             <div class="row">
-              <div class="col-xs-4 col-sm-4 px-0 text-center stock-item mb-4" *ngFor="let truc of [0,1,2,3,4]">
-                <div class="mx-3 py-3 stock-item-content rounded">
-                  <img src="/assets/images/icons/coin.png" class="mb-2" width="48" width="48">
-                  <h5 class="mb-0 font-weight-bold stock-item-name">Carottes</h5>
-                  <h6 class="my-0 stock-item-quantity">6</h6>
+              <div class="col-12">
+                <progressbar class="progress" [value]="55" [max]="100">55%</progressbar>
+              </div>
+            </div>
+            <div class="row pb-2 pt-3">
+              <div class="col-12 mb-2 rounded shopping-item" *ngFor="let truc of [0,1,2,3,4]">
+                <!-- <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Tchoin (5g)</span>
+                </label> -->
+                <div class="mx-2 px-2 py-2 collected">
+                  <fa name="check" class="text-success float-left mr-2"></fa> <span>Tchoin (50g)</span>
                 </div>
               </div>
             </div>

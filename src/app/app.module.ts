@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     BrowserTransferStateModule,
     RoutingModule,
+    ProgressbarModule.forRoot(),
+    BsDropdownModule.forRoot(),
     AngularFontAwesomeModule
   ],
   providers: [],
