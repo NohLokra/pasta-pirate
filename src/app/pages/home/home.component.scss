@@ -70,10 +70,18 @@
 
     .collected {
       background-color: $primary;
+
+      &:hover {
+        background-color: darken($primary, 5);
+      }
     }
 
     .uncollected {
       background-color: lighten($primary, 30);
+
+      &:hover {
+        background-color: lighten($primary, 15);
+      }
     }
 
     .custom-checkbox {
