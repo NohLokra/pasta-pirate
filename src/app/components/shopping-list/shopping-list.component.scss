@@ -1,0 +1,60 @@
+@import "../../../variables";
+
+.shopping {
+  .shopping-item {
+    &>div {
+      fa {
+        font-size: 1.7rem;
+
+        margin-top: -6px;
+      }
+
+      span {
+        color: $white;
+        font-size: 1.2rem;
+      }
+    }
+
+    .collected {
+      background-color: $primary;
+
+      &:hover {
+        background-color: darken($primary, 5);
+      }
+    }
+
+    .uncollected {
+      background-color: lighten($primary, 30);
+
+      &:hover {
+        background-color: lighten($primary, 15);
+      }
+    }
+
+    .custom-checkbox {
+      display: block;
+    }
+
+    .custom-control-input {
+      &:focus {
+        border-width: 0px;
+      }
+    }
+
+    .custom-control-indicator {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+
+    .custom-control-description {
+      margin-top: 2px;
+      margin-left: 10px;
+
+      font-size: 1rem;
+    }
+  }
+
+  .progress-bar {
+    transition: width .6s ease;
+  }
+}

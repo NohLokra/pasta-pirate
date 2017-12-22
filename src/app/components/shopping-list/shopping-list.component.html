@@ -1,0 +1,21 @@
+<div class="card border-primary mb-3 w-100">
+  <div class="card-header px-3">Prochain gallion en vue</div>
+  <div class="card-body px-3 pt-3 pb-0 shopping" *ngIf="shoppingList">
+    <div class="row">
+      <div class="col-12">
+        <div class="progress" style="height: 20px;">
+          <div class="progress-bar" [ngStyle]="{'width.%': progression}">{{ progression }}%</div>
+        </div>
+      </div>
+    </div>
+    <div class="row pb-2 pt-3">
+      <div class="col-12 mb-2 rounded shopping-item" *ngFor="let ingredient of shoppingList.ingredients">
+        <div [ngClass]="{'mx-2 px-2 py-2 rounded': true, 'collected': ingredient.isTaken, 'uncollected': !ingredient.isTaken}" (click)="takeIngredient(ingredient)">
+          <fa name="check" class="text-success float-left mr-2" *ngIf="ingredient.isTaken"></fa>
+          <fa name="times" class="text-danger float-left mr-2" *ngIf="!ingredient.isTaken"></fa>
+          <span>{{ ingredient.aliment.name }} ({{ ingredient.quantity }}{{ ingredient.aliment.unit | quantity }})</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,13 +21,15 @@ import { RecipeService } from './services/recipe.service';
 import { FakeRecipeService } from './services/fake.recipe.service';
 import { ShoppingListService } from './services/shopping-list.service';
 import { FakeShoppingListService } from './services/fake.shopping-list.service';
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    QuantityPipe
+    QuantityPipe,
+    ShoppingListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'universal-demo-v5' }),
