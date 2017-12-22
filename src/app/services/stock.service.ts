@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { IStockService } from './stock.interface';
 import { StockModel } from '../models/stock.model';
-import { FoodModel, UNIT_ENUM } from '../models/food.model';
+import { AlimentModel, UNIT_ENUM } from '../models/aliment.model';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -14,6 +14,6 @@ export class StockService implements IStockService {
   ) { }
 
   getStock() : Observable<StockModel[]> {
-    throw new Error("Not implemented");
+    throw new Error("Method not implemented.");
   }
 }

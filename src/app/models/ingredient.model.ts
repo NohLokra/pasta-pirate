@@ -1,7 +1,6 @@
 import { AlimentModel } from './aliment.model';
 
-export class StockModel {
-  id: string;
+export class IngredientModel {
   aliment: AlimentModel;
   quantity: number;
 }

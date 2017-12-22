@@ -1,4 +1,5 @@
-export class FoodModel {
+export class AlimentModel {
+  id: string;
   name: string;
   image: string;
   unit: UNIT_ENUM;

@@ -17,6 +17,8 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
+import { RecipeService } from './services/recipe.service';
+import { FakeRecipeService } from './services/fake.recipe.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AppComponent } from './app.component';
     AngularFontAwesomeModule
   ],
   providers: [
-    {provide: StockService, useClass: FakeStockService}
+    {provide: StockService, useClass: FakeStockService},
+    {provide: RecipeService, useClass: FakeRecipeService}
   ],
   bootstrap: [AppComponent]
 })
