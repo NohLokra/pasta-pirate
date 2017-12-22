@@ -56,29 +56,7 @@
     </div>
     
     <div class="col-xs-12 col-sm-3">
-      <div class="card border-primary mb-3 w-100">
-        <div class="card-header px-3">Carte au trésor actuelle</div>
-        <fa name="circle-o-notch" class="my-5 text-center loading-cog" animation="spin" size="5x" *ngIf="!recipe"></fa>
-        <div class="card-body px-3 pt-3 pb-0 recipe" *ngIf="recipe">
-          <div class="row">
-            <div class="col-12">
-              <h3><img [src]="'/assets/images/' + recipe.image" class="float-left mr-2" style="margin-top: -1px;" width="32" width="32">{{ recipe.name }}</h3>
-              
-              <div class="d-flex w-100 justify-content-between">
-                <h5>Ingrédients</h5>
-                <small>{{ recipe.type }}</small>
-              </div>
-              
-              <ul class="mx-3 recipe-ingredients-list">
-                <li class="p-1 rounded font-italic" *ngFor="let ingredient of recipe.ingredients"><img [src]="'/assets/images/' + ingredient.aliment.image" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ ingredient.aliment.name }} ({{ ingredient.quantity }}{{ ingredient.aliment.unit | quantity }}) <fa name="check" class="float-right text-success" *ngIf="ingredient.isInStock"></fa><fa name="times" class="float-right text-danger" *ngIf="!ingredient.isInStock"></fa></li>
-              </ul>
-              
-              <h5>Recette</h5>
-              <div [innerHtml]="recipe.description"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-recipe [stocks]="stocks" [recipe]="recipe"></app-recipe>
     </div>
 
     <div class="col-xs-12 col-sm-3">

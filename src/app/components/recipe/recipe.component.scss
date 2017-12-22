@@ -1,0 +1,15 @@
+@import "../../../variables";
+
+.recipe {
+  .recipe-ingredients-list {
+    padding: 0;
+
+    li {
+      list-style-type: none;
+
+      &:hover {
+        background-color: lighten($primary, 35);
+      }
+    }
+  }
+}

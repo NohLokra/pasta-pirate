@@ -41,14 +41,6 @@ export class HomeComponent implements OnInit {
   selectRecipe(id: string) {
     this._recipeService.getRecipe(id).subscribe(data => {
       this.recipe = data;
-
-      this.recipe.ingredients.forEach(ingredient => {
-        let alimentStock = this.stocks.find(x => x.aliment.id == ingredient.aliment.id);
-
-        if (alimentStock && alimentStock.quantity >= ingredient.quantity) {
-          ingredient.isInStock = true;
-        }
-      });
     });
   }
 }
