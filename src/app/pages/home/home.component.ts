@@ -4,7 +4,8 @@ import { StockService } from '../../services/stock.service';
 import { StockModel } from '../../models/stock.model';
 import { RecipeService } from '../../services/recipe.service';
 import { RecipeModel } from '../../models/recipe.model';
-import { forEach } from '@angular/router/src/utils/collection';
+import { ShoppingListService } from '../../services/shopping-list.service';
+import { ShoppingListModel } from '../../models/shopping-list.model';
 
 @Component({
   selector: 'app-home',
@@ -14,13 +15,15 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class HomeComponent implements OnInit {
 
   stocks: StockModel[];
+
   recipe: RecipeModel;
 
-  recipeStock: any[];
+  shoppingList: ShoppingListModel;
 
   constructor(
     private _stockService: StockService,
-    private _recipeService: RecipeService
+    private _recipeService: RecipeService,
+    private _shoppingListService: ShoppingListService
   ) { }
 
   ngOnInit() { 
@@ -28,7 +31,9 @@ export class HomeComponent implements OnInit {
       this.stocks = data;
     });
 
-    this.recipeStock = [];
+    this._shoppingListService.getLastShoppingList().subscribe(data => {
+      this.shoppingList = data;
+    });
 
     this.selectRecipe("5qzd46zqgq8q46f4zq68fqz");
   }

@@ -19,6 +19,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppComponent } from './app.component';
 import { RecipeService } from './services/recipe.service';
 import { FakeRecipeService } from './services/fake.recipe.service';
+import { ShoppingListService } from './services/shopping-list.service';
+import { FakeShoppingListService } from './services/fake.shopping-list.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { FakeRecipeService } from './services/fake.recipe.service';
   ],
   providers: [
     {provide: StockService, useClass: FakeStockService},
-    {provide: RecipeService, useClass: FakeRecipeService}
+    {provide: RecipeService, useClass: FakeRecipeService},
+    {provide: ShoppingListService, useClass: FakeShoppingListService}
   ],
   bootstrap: [AppComponent]
 })
