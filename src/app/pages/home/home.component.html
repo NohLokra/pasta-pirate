@@ -1,58 +1,11 @@
 <div class="container-fluid">
   <div class="row mt-4">
     <div class="col-xs-12 col-sm-3">
-      <div class="card border-primary mb-3 w-100">
-        <div class="card-header px-3">Futurs abordages</div>
-        <div class="card-body px-3 py-3 planning">
-          <h5 class="mb-0">Lundi 15 décembre</h5>
-          <p class="text-muted mb-1">Petit-déjeuner</p>
-          
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Salade de tchoins</h5>
-                <small>Entrée</small>
-              </div>
-              <p class="mb-1">Choux, tchoins, salade, truc.</p>
-              <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>00h20</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Hamburger de tchoins</h5>
-                <small>Plat</small>
-              </div>
-              <p class="mb-1">Salade, tomate, tchoin, oignons, steak.</p>
-              <small><fa name="times"></fa>Jamais réalisée &nbsp;&nbsp; <fa name="clock-o"></fa>01h20</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Tchoin montée</h5>
-                <small>Dessert</small>
-              </div>
-              <p class="mb-1">Choux, tchoins, salade, truc.</p>
-              <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>05h50</small>
-            </a>
-          </div>
-        </div>
-      </div>
+      <app-planning></app-planning>
     </div>
     
     <div class="col-xs-12 col-sm-3">
-      <div class="card border-primary mb-3 w-100">
-        <div class="card-header px-3">Cale du navire</div>
-        <fa name="circle-o-notch" class="my-5 text-center loading-cog" animation="spin" size="5x" *ngIf="!stocks"></fa>
-        <div class="card-body px-3 pt-3 pb-0 stock" *ngIf="stocks">
-          <div class="row">
-            <div class="col-xs-3 col-sm-3 px-0 text-center stock-item mb-3" *ngFor="let stock of stocks">
-              <div class="mx-2 py-3 stock-item-content rounded">
-                <img [src]="'/assets/images/' + stock.aliment.image" class="mb-2" width="32" width="32">
-                <h5 class="mb-0 stock-item-name">{{ stock.aliment.name }}</h5>
-                <h6 class="my-0 font-weight-bold stock-item-quantity">{{ stock.quantity }} {{ stock.aliment.unit | quantity }}</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-stock [stocks]="stocks"></app-stock>
     </div>
     
     <div class="col-xs-12 col-sm-3">

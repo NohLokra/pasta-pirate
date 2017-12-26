@@ -23,6 +23,8 @@ import { ShoppingListService } from './services/shopping-list.service';
 import { FakeShoppingListService } from './services/fake.shopping-list.service';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { PlanningComponent } from './components/planning/planning.component';
+import { StockComponent } from './components/stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     AboutComponent,
     QuantityPipe,
     ShoppingListComponent,
-    RecipeComponent
+    RecipeComponent,
+    PlanningComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'universal-demo-v5' }),
