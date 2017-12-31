@@ -14,15 +14,15 @@ export class PlanningComponent implements OnInit {
   plannings: PlanningModel[];
 
   @Output()
-  recipeSelected = new EventEmitter<RecipeModel>();
+  selectedRecipe = new EventEmitter<RecipeModel>();
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit() {
   }
 
   selectRecipe(recipe: RecipeModel) {
-    console.log("log");
+    this.selectedRecipe.emit(recipe);
   }
 
 }

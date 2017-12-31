@@ -52,4 +52,9 @@ export class HomeComponent implements OnInit {
       this.recipe = data;
     });
   }
+
+  selectedRecipe(recipe: RecipeModel) {
+    console.log("Yop! qdqfquh");
+	  //this.selectRecipe(recipe.id);
+  }
 }
