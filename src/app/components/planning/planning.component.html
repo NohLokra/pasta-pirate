@@ -1,35 +1,37 @@
 <div class="card border-primary mb-3 w-100">
-        <div class="card-header px-3">Futurs abordages</div>
-        <div class="card-body px-3 py-3 planning">
-          <h5 class="mb-0">Lundi 15 décembre</h5>
-          <p class="text-muted mb-1">Petit-déjeuner</p>
-          
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Salade de tchoins</h5>
-                <small>Entrée</small>
-              </div>
-              <p class="mb-1">Choux, tchoins, salade, truc.</p>
-              <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>00h20</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Hamburger de tchoins</h5>
-                <small>Plat</small>
-              </div>
-              <p class="mb-1">Salade, tomate, tchoin, oignons, steak.</p>
-              <small><fa name="times"></fa>Jamais réalisée &nbsp;&nbsp; <fa name="clock-o"></fa>01h20</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Tchoin montée</h5>
-                <small>Dessert</small>
-              </div>
-              <p class="mb-1">Choux, tchoins, salade, truc.</p>
-              <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>05h50</small>
-            </a>
+  <div class="card-header px-3">Futurs abordages</div>
+  <div class="card-body px-3 py-3 planning">
+    <div *ngFor="let planning of plannings">
+      <h5 class="mb-0">{{ planning.date | date:'fullDate' }}</h5>
+      <p class="text-muted mb-1">Petit-déjeuner</p>
+      
+      <div class="list-group">
+        <a (click)="selectRecipe()" href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Salade de tchoins</h5>
+            <small>Entrée</small>
           </div>
-        </div>
+          <p class="mb-1">Choux, tchoins, salade, truc.</p>
+          <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>00h20</small>
+        </a>
+        <!-- <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Hamburger de tchoins</h5>
+            <small>Plat</small>
+          </div>
+          <p class="mb-1">Salade, tomate, tchoin, oignons, steak.</p>
+          <small><fa name="times"></fa>Jamais réalisée &nbsp;&nbsp; <fa name="clock-o"></fa>01h20</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> Tchoin montée</h5>
+            <small>Dessert</small>
+          </div>
+          <p class="mb-1">Choux, tchoins, salade, truc.</p>
+          <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>05h50</small>
+        </a> -->
       </div>
+    </div>
+  </div>
+</div>
 

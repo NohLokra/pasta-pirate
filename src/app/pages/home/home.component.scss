@@ -1,18 +1,1 @@
 @import "../../../variables";
-
-.stock {
-  .stock-item {
-    .stock-item-content {
-      background-color: $primary;
-    }
-
-    .stock-item-name {
-      color: $white;
-      font-size: 0.65rem;
-    }
-
-    .stock-item-quantity {
-      color: $white;
-    }
-  }
-}

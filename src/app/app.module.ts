@@ -25,6 +25,8 @@ import { ShoppingListComponent } from './components/shopping-list/shopping-list.
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { PlanningComponent } from './components/planning/planning.component';
 import { StockComponent } from './components/stock/stock.component';
+import { PlanningService } from './services/planning.service';
+import { FakePlanningService } from './services/fake.planning.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { StockComponent } from './components/stock/stock.component';
   providers: [
     {provide: StockService, useClass: FakeStockService},
     {provide: RecipeService, useClass: FakeRecipeService},
-    {provide: ShoppingListService, useClass: FakeShoppingListService}
+    {provide: ShoppingListService, useClass: FakeShoppingListService},
+    {provide: PlanningService, useClass: FakePlanningService}
   ],
   bootstrap: [AppComponent]
 })

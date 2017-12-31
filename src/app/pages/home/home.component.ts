@@ -6,6 +6,8 @@ import { RecipeService } from '../../services/recipe.service';
 import { RecipeModel } from '../../models/recipe.model';
 import { ShoppingListService } from '../../services/shopping-list.service';
 import { ShoppingListModel } from '../../models/shopping-list.model';
+import { PlanningService } from '../../services/planning.service';
+import { PlanningModel } from '../../models/planning.model';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +15,8 @@ import { ShoppingListModel } from '../../models/shopping-list.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  plannings: PlanningModel[];
 
   stocks: StockModel[];
 
@@ -23,7 +27,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private _stockService: StockService,
     private _recipeService: RecipeService,
-    private _shoppingListService: ShoppingListService
+    private _shoppingListService: ShoppingListService,
+    private _planningService: PlanningService
   ) { }
 
   ngOnInit() { 
@@ -33,6 +38,10 @@ export class HomeComponent implements OnInit {
 
     this._shoppingListService.getLastShoppingList().subscribe(data => {
       this.shoppingList = data;
+    });
+
+    this._planningService.getPlanningForDate(new Date()).subscribe(data => {
+      this.plannings = data;
     });
 
     this.selectRecipe("5qzd46zqgq8q46f4zq68fqz");
