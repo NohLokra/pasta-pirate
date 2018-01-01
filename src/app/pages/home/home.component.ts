@@ -54,7 +54,6 @@ export class HomeComponent implements OnInit {
   }
 
   selectedRecipe(recipe: RecipeModel) {
-    console.log("Yop! qdqfquh");
-	  //this.selectRecipe(recipe.id);
+	  this.selectRecipe(recipe.id);
   }
 }

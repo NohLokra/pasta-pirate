@@ -6,25 +6,25 @@
       <p class="text-muted mb-1">Petit-déjeuner</p>
       
       <div class="list-group">
-        <a *ngIf="planning.menu.starter" href="javascript:void(0);" (click)="selectRecipe(planning.menu.starter.id)" class="list-group-item list-group-item-action flex-column align-items-start active">
+        <a *ngIf="planning.menu.starter" href="javascript:void(0);" (click)="selectRecipe(planning.menu.starter)" class="list-group-item list-group-item-action flex-column align-items-start active">
           <div class="d-flex w-100 justify-content-between">
-	    <h5 class="mb-1"><img [src]="'/assets/images/' + planning.menu.starter.image" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.starter.name }}</h5>
+            <h5 class="mb-1"><img [src]="'/assets/images/' + planning.menu.starter.image" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.starter.name }}</h5>
             <small>Entrée</small>
           </div>
           <p class="mb-1">Choux, tchoins, salade, truc.</p>
           <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>00h20</small>
         </a>
-        <a *ngIf="planning.menu.dish" href="javascript:void(0);" (click)="selectRecipe(planning.menu.dish.id)" class="list-group-item list-group-item-action flex-column align-items-start">
+        <a *ngIf="planning.menu.dish" href="javascript:void(0);" (click)="selectRecipe(planning.menu.dish)" class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
-	    <h5 class="mb-1"><img [src]="'/assets/images/' + planning.menu.dish.image" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.dish.name }}</h5>
+            <h5 class="mb-1"><img [src]="'/assets/images/' + planning.menu.dish.image" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.dish.name }}</h5>
             <small>Plat</small>
           </div>
-	  <p class="mb-1"><span *ngFor="let ingredient of planning.menu.dish.ingredients">{{ ingredient.aliment.name + ', ' | lowercase }}</span>Salade, tomate, tchoin, oignons, steak.</p>
+          <p class="mb-1"><span *ngFor="let ingredient of planning.menu.dish.ingredients">{{ ingredient.aliment.name + ', ' | lowercase }}</span>Salade, tomate, tchoin, oignons, steak.</p>
           <small><fa name="times"></fa>Jamais réalisée &nbsp;&nbsp; <fa name="clock-o"></fa>01h20</small>
         </a>
         <a *ngIf="planning.menu.dessert" href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
-	    <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.dessert.name }}</h5>
+            <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.dessert.name }}</h5>
             <small>Dessert</small>
           </div>
           <p class="mb-1">Choux, tchoins, salade, truc.</p>
