@@ -9,7 +9,7 @@
     </div>
     
     <div class="col-xs-12 col-sm-3">
-      <app-recipe [stocks]="stocks" [recipe]="recipe"></app-recipe>
+      <app-recipe [stocks]="stocks" [recipe]="recipe" [shoppingList]="shoppingList" (addedIngredient)="addedIngredient($event)"></app-recipe>
     </div>
 
     <div class="col-xs-12 col-sm-3">

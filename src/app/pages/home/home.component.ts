@@ -8,6 +8,8 @@ import { ShoppingListService } from '../../services/shopping-list.service';
 import { ShoppingListModel } from '../../models/shopping-list.model';
 import { PlanningService } from '../../services/planning.service';
 import { PlanningModel } from '../../models/planning.model';
+import { IngredientModel } from '../../models/ingredient.model';
+import { ShoppingListIngredientModel } from '../../models/shopping-list-ingredient.model';
 
 @Component({
   selector: 'app-home',
@@ -55,5 +57,14 @@ export class HomeComponent implements OnInit {
 
   selectedRecipe(recipe: RecipeModel) {
 	  this.selectRecipe(recipe.id);
+  }
+
+  addedIngredient(ingredient: IngredientModel) {
+    let shoppingListIngredient = new ShoppingListIngredientModel();
+    shoppingListIngredient.aliment = ingredient.aliment;
+    shoppingListIngredient.quantity = ingredient.quantity;
+    shoppingListIngredient.isTaken = false;
+
+    this.shoppingList.ingredients.push(shoppingListIngredient);
   }
 }

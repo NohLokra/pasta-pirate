@@ -4,4 +4,5 @@ export class IngredientModel {
   aliment: AlimentModel;
   quantity: number;
   isInStock?: boolean = false;
+  isInShoppingList?: boolean = false;
 }
