@@ -13,6 +13,9 @@ export class PlanningComponent implements OnInit {
   @Input()
   plannings: PlanningModel[];
 
+  @Input()
+  recipeSelected: RecipeModel;
+
   @Output()
   selectedRecipe = new EventEmitter<RecipeModel>();
 
