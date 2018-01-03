@@ -24,4 +24,14 @@ export class StockComponent implements OnInit {
     console.log("log");
   }
 
+  removeQuantity(stock: StockModel, quantity: number) {
+    stock.quantity -= +quantity;
+
+    if (stock.quantity < 0) stock.quantity = 0;
+  }
+
+  addQuantity(stock: StockModel, quantity: number) {
+    stock.quantity += +quantity;
+  }
+
 }

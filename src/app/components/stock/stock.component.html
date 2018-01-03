@@ -8,6 +8,16 @@
           <img [src]="'/assets/images/' + stock.aliment.image" class="mb-2" width="32" width="32">
           <h5 class="mb-0 stock-item-name">{{ stock.aliment.name }}</h5>
           <h6 class="my-0 font-weight-bold stock-item-quantity">{{ stock.quantity }} {{ stock.aliment.unit | quantity }}</h6>
+
+          <div class="input-group input-group-sm mt-2 px-1">
+            <div class="input-group-prepend">
+              <button class="btn btn-danger btn-sm" type="button" (click)="removeQuantity(stock, valueStock.value)">-</button>
+            </div>
+            <input type="number" class="form-control px-0 text-center" value="1" #valueStock>
+            <div class="input-group-append">
+              <button class="btn btn-success btn-sm" type="button" (click)="addQuantity(stock, valueStock.value)">+</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
