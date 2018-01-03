@@ -61,15 +61,21 @@ export class HomeComponent implements OnInit {
 
   addedIngredient(ingredient: IngredientModel) {
     let addedIngredient = this.shoppingList.ingredients.find(x => x.aliment.id == ingredient.aliment.id);
+    let stockedIngredient = this.stocks.find(x => x.aliment.id == ingredient.aliment.id);
+    
+    let numberToAdd = ingredient.quantity;
+    if (stockedIngredient) {
+      numberToAdd -= stockedIngredient.quantity;
+    }
 
     if (addedIngredient) {
-      addedIngredient.quantity += ingredient.quantity;
+      addedIngredient.quantity += numberToAdd;
       return;
     }
 
     let shoppingListIngredient = new ShoppingListIngredientModel();
     shoppingListIngredient.aliment = ingredient.aliment;
-    shoppingListIngredient.quantity = ingredient.quantity;
+    shoppingListIngredient.quantity = numberToAdd;
     shoppingListIngredient.isTaken = false;
 
     this.shoppingList.ingredients.push(shoppingListIngredient);

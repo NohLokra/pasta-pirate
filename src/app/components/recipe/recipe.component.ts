@@ -38,19 +38,28 @@ export class RecipeComponent implements OnInit, DoCheck {
 
       let alimentShoppingList = this.shoppingList.ingredients.find(x => x.aliment.id == ingredient.aliment.id);
 
-      if (alimentStock && alimentStock.quantity >= ingredient.quantity) {
+      let quantityToFind = ingredient.quantity;
+
+      if (alimentStock) {
+        quantityToFind -= alimentStock.quantity;
+      }
+
+      if (quantityToFind <= 0) {
         ingredient.isInStock = true;
+        return;
       } else {
         ingredient.isInStock = false;
       }
 
-      if (alimentShoppingList && alimentShoppingList.quantity >= ingredient.quantity) {
+      if (alimentShoppingList) {
+        quantityToFind -= alimentShoppingList.quantity;
+      }
+
+      if (quantityToFind <= 0) {
         ingredient.isInShoppingList = true;
       } else {
         ingredient.isInShoppingList = false;
       }
-
-
     });
   }
 
