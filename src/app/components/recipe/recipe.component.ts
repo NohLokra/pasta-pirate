@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
+import { Component, OnInit, DoCheck, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 
 import { RecipeModel } from '../../models/recipe.model';
 import { StockModel } from '../../models/stock.model';
@@ -10,7 +10,7 @@ import { ShoppingListModel } from '../../models/shopping-list.model';
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.scss']
 })
-export class RecipeComponent implements OnInit, OnChanges {
+export class RecipeComponent implements OnInit, DoCheck {
 
   @Input()
   recipe: RecipeModel;
@@ -26,10 +26,9 @@ export class RecipeComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngDoCheck(): void {
     this.checkIngredients();
   }
 
@@ -41,11 +40,17 @@ export class RecipeComponent implements OnInit, OnChanges {
 
       if (alimentStock && alimentStock.quantity >= ingredient.quantity) {
         ingredient.isInStock = true;
+      } else {
+        ingredient.isInStock = false;
       }
 
       if (alimentShoppingList && alimentShoppingList.quantity >= ingredient.quantity) {
         ingredient.isInShoppingList = true;
+      } else {
+        ingredient.isInShoppingList = false;
       }
+
+
     });
   }
 
