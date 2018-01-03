@@ -4,7 +4,7 @@
   <div class="card-body px-3 pt-3 pb-0 recipe" *ngIf="recipe">
     <div class="row">
       <div class="col-12">
-        <h3><img [src]="'/assets/images/' + recipe.image" class="float-left mr-2" style="margin-top: -1px;" width="32" width="32">{{ recipe.name }}</h3>
+        <h3><img [src]="'/assets/images/' + recipe.image" class="float-left mr-2" style="margin-top: -1px;" width="32" width="32">{{ recipe.name }} <small style="font-size: 0.8rem;" class="text-muted font-weight-bold">{{ recipe.time | realRecipeTime }}</small></h3>
         
         <div class="d-flex w-100 justify-content-between">
           <h5>Ingrédients</h5>

@@ -12,7 +12,12 @@
             <small>Entrée</small>
           </div>
           <p class="mb-1">Choux, tchoins, salade, truc.</p>
-          <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>00h20</small>
+          <small>
+            <span *ngIf="planning.menu.starter.alreadyDone"><fa name="check"></fa> Déjà goutée</span>
+            <span *ngIf="!planning.menu.starter.alreadyDone"><fa name="times"></fa> Jamais réalisée</span>
+            &nbsp;&nbsp;
+            <fa name="clock-o"></fa>{{ planning.menu.starter.time | realRecipeTime }}
+          </small>
         </a>
         <a *ngIf="planning.menu.dish" href="javascript:void(0);" (click)="selectRecipe(planning.menu.dish)" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start': true, 'active': planning.menu.dish.id == recipeSelected.id}">
           <div class="d-flex w-100 justify-content-between">
@@ -20,7 +25,12 @@
             <small>Plat</small>
           </div>
           <p class="mb-1"><span *ngFor="let ingredient of planning.menu.dish.ingredients">{{ ingredient.aliment.name + ', ' | lowercase }}</span>Salade, tomate, tchoin, oignons, steak.</p>
-          <small><fa name="times"></fa>Jamais réalisée &nbsp;&nbsp; <fa name="clock-o"></fa>01h20</small>
+          <small>
+            <span *ngIf="planning.menu.dish.alreadyDone"><fa name="check"></fa> Déjà goutée</span>
+            <span *ngIf="!planning.menu.dish.alreadyDone"><fa name="times"></fa> Jamais réalisée</span>
+            &nbsp;&nbsp; 
+            <fa name="clock-o"></fa>{{ planning.menu.dish.time | realRecipeTime }}
+          </small>
         </a>
         <a *ngIf="planning.menu.dessert" href="javascript:void(0);" (click)="selectRecipe(planning.menu.dessert)" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start': true, 'active': planning.menu.dessert.id == recipeSelected.id}">
           <div class="d-flex w-100 justify-content-between">
@@ -28,7 +38,12 @@
             <small>Dessert</small>
           </div>
           <p class="mb-1">Choux, tchoins, salade, truc.</p>
-          <small><fa name="check"></fa>Déjà goutée &nbsp;&nbsp; <fa name="clock-o"></fa>05h50</small>
+          <small>
+            <span *ngIf="planning.menu.dessert.alreadyDone"><fa name="check"></fa> Déjà goutée</span>
+            <span *ngIf="!planning.menu.dessert.alreadyDone"><fa name="times"></fa> Jamais réalisée</span>
+            &nbsp;&nbsp; 
+            <fa name="clock-o"></fa>{{ planning.menu.dessert.time | realRecipeTime }}
+          </small>
         </a>
       </div>
     </div>

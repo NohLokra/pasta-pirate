@@ -43,6 +43,11 @@ export class HomeComponent implements OnInit {
     });
 
     this._planningService.getPlanningForDate(new Date()).subscribe(data => {
+      data.forEach(planning => {
+        if (planning.menu.starter) planning.menu.starter.alreadyDone = this._recipeService.isAlreadyDone(planning.menu.starter);
+        if (planning.menu.dish) planning.menu.dish.alreadyDone = this._recipeService.isAlreadyDone(planning.menu.dish);
+        if (planning.menu.dessert) planning.menu.dessert.alreadyDone = this._recipeService.isAlreadyDone(planning.menu.dessert);
+      })
       this.plannings = data;
     });
 

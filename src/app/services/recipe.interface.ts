@@ -3,4 +3,8 @@ import { Observable } from 'rxjs/Observable';
 
 export interface IRecipeService {
   getRecipe(id: string) : Observable<RecipeModel>;
+
+  recipeTimeToRealFuckingTime(time: number) : string;
+
+  isAlreadyDone(recipe: RecipeModel) : boolean;
 }

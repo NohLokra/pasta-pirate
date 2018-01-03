@@ -15,4 +15,15 @@ export class RecipeService implements IRecipeService {
   getRecipe(id: string): Observable<RecipeModel> {
     throw new Error("Method not implemented.");
   }
+
+  recipeTimeToRealFuckingTime(time: number): string {
+    var n = new Date(0,0);
+    n.setSeconds(+time * 60 * 60);
+
+    return n.toTimeString().slice(0, 5);
+  }
+
+  isAlreadyDone(recipe: RecipeModel): boolean {
+    throw new Error("Method not implemented.");
+  }
 }

@@ -7,6 +7,8 @@ export class RecipeModel {
   description: string;
   ingredients: IngredientModel[];
   type: RECIPE_TYPE;
+  time: number; // Time in hours (0.5 = 30 minutes, 0.3334 = 20 minutes, etc)
+  alreadyDone?: boolean;
 }
 
 export enum RECIPE_TYPE {

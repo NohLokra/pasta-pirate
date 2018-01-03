@@ -37,7 +37,8 @@ export class FakeRecipeService implements IRecipeService {
             quantity: 69
           }
         ],
-        type: RECIPE_TYPE.DISH
+        type: RECIPE_TYPE.DISH,
+        time: 0.3334
       },
       {
         id: "q6f8e4gqzf4eg68fsef4848z",
@@ -64,7 +65,8 @@ export class FakeRecipeService implements IRecipeService {
             quantity: 69
           }
         ],
-        type: RECIPE_TYPE.STARTER
+        type: RECIPE_TYPE.STARTER,
+        time: 1
       }
     ];
 
@@ -72,5 +74,16 @@ export class FakeRecipeService implements IRecipeService {
       sub.next(recipes.find(x => x.id == id));
       sub.complete();
     });
+  }
+
+  recipeTimeToRealFuckingTime(time: number): string {
+    var n = new Date(0,0);
+    n.setSeconds(+time * 60 * 60);
+
+    return n.toTimeString().slice(0, 5).replace(':', 'h');
+  }
+
+  isAlreadyDone(recipe: RecipeModel): boolean {
+    return true;
   }
 }
