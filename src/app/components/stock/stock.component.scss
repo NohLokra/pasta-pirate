@@ -4,6 +4,13 @@
   .stock-item {
     .stock-item-content {
       background-color: $primary;
+
+      max-width: 100px;
+      height: 135px;
+    }
+
+    .stock-item-add {
+      color: $white;
     }
 
     .stock-item-name {

@@ -1,14 +1,14 @@
 <div class="card border-primary mb-3 w-100">
   <div class="card-header px-3">Cale du navire</div>
   <fa name="circle-o-notch" class="my-5 text-center loading-cog" animation="spin" size="5x" *ngIf="!stocks"></fa>
-  <div class="card-body px-3 pt-3 pb-0 stock" *ngIf="stocks">
-    <div class="row">
-      <div class="col-xs-3 col-sm-3 px-0 text-center stock-item mb-3" *ngFor="let stock of stocks">
+  <div class="card-body px-2 pt-3 pb-0 stock" *ngIf="stocks">
+    <div class="d-flex flex-wrap">
+      <div class="px-0 text-center stock-item mb-3" *ngFor="let stock of stocks">
         <div class="mx-2 py-3 stock-item-content rounded">
           <img [src]="'/assets/images/' + stock.aliment.image" class="mb-2" width="32" width="32">
           <h5 class="mb-0 stock-item-name">{{ stock.aliment.name }}</h5>
           <h6 class="my-0 font-weight-bold stock-item-quantity">{{ stock.quantity }} {{ stock.aliment.unit | quantity }}</h6>
-
+          
           <div class="input-group input-group-sm mt-2 px-1">
             <div class="input-group-prepend">
               <button class="btn btn-danger btn-sm" type="button" (click)="removeQuantity(stock, valueStock.value)">-</button>
@@ -20,7 +20,29 @@
           </div>
         </div>
       </div>
+      <div class="px-0 text-center stock-item mb-3">
+        <div class="mx-2 py-3 stock-item-content stock-item-add rounded pointer" (click)="addStockModal.show()">
+          <fa name="plus" size="5x"></fa>
+          <span>Ajouter</span>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
+<div bsModal #addStockModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-sm">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h4 class="modal-title pull-left">Ajouter du stock</h4>
+       <button type="button" class="close pull-right" aria-label="Close" (click)="addStockModal.hide()">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+       ...
+     </div>
+   </div>
+ </div>
 </div>
 

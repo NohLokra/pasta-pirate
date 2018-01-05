@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 
 import { RoutingModule } from './app.router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
+import { HomePageComponent } from './pages/home/home.component';
+import { AboutPageComponent } from './pages/about/about.component';
+import { StockPageComponent } from './pages/stock/stock.component';
 
 import { StockService } from './services/stock.service';
 import { FakeStockService } from './services/fake.stock.service';
@@ -14,6 +15,7 @@ import { QuantityPipe } from './pipes/quantity.pipe';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
@@ -32,8 +34,9 @@ import { RealRecipeTimePipe } from './pipes/real-recipe-time.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AboutComponent,
+    HomePageComponent,
+    AboutPageComponent,
+    StockPageComponent,
     QuantityPipe,
     ShoppingListComponent,
     RecipeComponent,
@@ -48,6 +51,7 @@ import { RealRecipeTimePipe } from './pipes/real-recipe-time.pipe';
     RoutingModule,
     ProgressbarModule.forRoot(),
     BsDropdownModule.forRoot(),
+    ModalModule.forRoot(),
     AngularFontAwesomeModule
   ],
   providers: [

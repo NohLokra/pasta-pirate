@@ -12,11 +12,11 @@ import { IngredientModel } from '../../models/ingredient.model';
 import { ShoppingListIngredientModel } from '../../models/shopping-list-ingredient.model';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-page-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomePageComponent implements OnInit {
 
   plannings: PlanningModel[];
 
