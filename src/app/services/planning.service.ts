@@ -9,7 +9,7 @@ import { PlanningModel } from '../models/planning.model';
 
 @Injectable()
 export class PlanningService implements IPlanningService {
-  
+
   constructor(
     private _http: HttpClient
   ) { }
