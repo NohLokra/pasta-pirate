@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home/home.component';
 import { AboutPageComponent } from './pages/about/about.component';
 import { StockPageComponent } from './pages/stock/stock.component';
+import { RecipeListPageComponent } from './pages/recipe-list/recipe-list.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'stock', component: StockPageComponent },
+  { path: 'recipes', component: RecipeListPageComponent },
   { path: '**', redirectTo: '/' }
 ];
 

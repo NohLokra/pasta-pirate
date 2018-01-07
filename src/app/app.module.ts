@@ -8,6 +8,7 @@ import { RoutingModule } from './app.router';
 import { HomePageComponent } from './pages/home/home.component';
 import { AboutPageComponent } from './pages/about/about.component';
 import { StockPageComponent } from './pages/stock/stock.component';
+import { RecipeListPageComponent } from './pages/recipe-list/recipe-list.component';
 
 import { StockService } from './services/stock.service';
 import { FakeStockService } from './services/fake.stock.service';
@@ -34,6 +35,7 @@ import { FakePlanningService } from './services/fake.planning.service';
 import { RealRecipeTimePipe } from './pipes/real-recipe-time.pipe';
 import { FakeAlimentService } from './services/fake.aliment.service';
 import { AlimentService } from './services/aliment.service';
+import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +43,14 @@ import { AlimentService } from './services/aliment.service';
     HomePageComponent,
     AboutPageComponent,
     StockPageComponent,
+    RecipeListPageComponent,
     QuantityPipe,
     ShoppingListComponent,
     RecipeComponent,
     PlanningComponent,
     StockComponent,
-    RealRecipeTimePipe
+    RealRecipeTimePipe,
+    RecipeListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'universal-demo-v5' }),

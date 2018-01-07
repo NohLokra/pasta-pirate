@@ -7,10 +7,14 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RecipeService implements IRecipeService {
-  
+    
   constructor(
     private _http: HttpClient
   ) { }
+
+  getAll(): Observable<RecipeModel[]> {
+    throw new Error("Method not implemented.");
+  }
 
   getRecipe(id: string): Observable<RecipeModel> {
     throw new Error("Method not implemented.");
