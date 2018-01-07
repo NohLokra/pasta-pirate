@@ -4,7 +4,7 @@
   <div class="card-body px-2 pt-3 pb-0 stock" *ngIf="stocks">
     <div class="d-flex flex-wrap">
       <div class="px-0 text-center stock-item mb-3" *ngFor="let stock of stocks">
-        <div class="mx-2 py-3 stock-item-content rounded">
+        <div class="mx-2 py-3 stock-item-content rounded" *ngIf="!filter || stock.aliment.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1 ">
           <img [src]="'/assets/images/' + stock.aliment.image" class="mb-2" width="32" width="32">
           <h5 class="mb-0 stock-item-name">{{ stock.aliment.name }}</h5>
           <h6 class="my-0 font-weight-bold stock-item-quantity">{{ stock.quantity }} {{ stock.aliment.unit | quantity }}</h6>

@@ -11,6 +11,8 @@ export class StockPageComponent implements OnInit {
 
   stocks: StockModel[];
 
+  searchedAlimentName: string;
+
   constructor(
     private _stockService: StockService
   ) { }

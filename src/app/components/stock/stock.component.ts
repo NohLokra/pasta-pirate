@@ -17,6 +17,8 @@ export class StockComponent implements OnInit {
 
   @Input() stocks: StockModel[];
 
+  @Input() filter: string;
+
   @Output()
   recipeSelected = new EventEmitter();
 

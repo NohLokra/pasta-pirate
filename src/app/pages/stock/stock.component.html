@@ -1,11 +1,19 @@
 <div class="container-fluid">
   <div class="row mt-4">
     <div class="col-xs-12 col-sm-3">
-      
+      <div class="card border-primary mb-3 w-100">
+        <div class="card-body text-primary">
+          <h5 class="card-title">Filtrer les aliments</h5>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Rechercher" [(ngModel)]="searchedAlimentName">
+            <small id="emailHelp" class="form-text text-muted">Je ferai de mon mieux pour chercher Cap'tain.</small>
+          </div>
+        </div>
+      </div>
     </div>
     
     <div class="col-xs-12 col-sm-9">
-      <app-stock [stocks]="stocks"></app-stock>
+      <app-stock [stocks]="stocks" [filter]="searchedAlimentName"></app-stock>
     </div>
   </div>
 </div>
