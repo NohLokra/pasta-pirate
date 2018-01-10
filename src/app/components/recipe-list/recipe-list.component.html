@@ -1,13 +1,26 @@
 <div class="card border-primary mb-3 w-100">
   <div class="card-header px-3">Liste des cartes au trésor</div>
   <fa name="circle-o-notch" class="my-5 text-center loading-cog" animation="spin" size="5x" *ngIf="!recipes"></fa>
-  <div class="card-body px-2 pt-3 pb-0 stock row" *ngIf="recipes">
-    <div class="stock-item mb-3 col-lg-4" *ngFor="let recipe of recipes">
-      <div class="d-flex w-100 justify-content-between">
-        <h3><img [src]="'/assets/images/' + recipe.image" class="float-left mr-2" style="margin-top: -1px;" width="32" width="32">{{ recipe.name }} <small style="font-size: 0.8rem;" class="text-muted font-weight-bold">{{ recipe.time | realRecipeTime }}</small></h3>
-        <small class="mt-2">Entrée</small>
+  <div class="card-body px-2 pt-3 pb-0 recipes row" *ngIf="recipes">
+    <a class="recipe-item mb-3 col-lg-4" href="#" *ngFor="let recipe of recipes">
+      <div class="p-2">
+        <div class="d-flex w-100 justify-content-between">
+          <h3>
+            <img [src]="'/assets/images/' + recipe.image" class="float-left mr-2" style="margin-top: -1px;" width="32" width="32">{{ recipe.name }}
+            <small style="font-size: 0.8rem;" class="text-muted font-weight-bold">{{ recipe.time | realRecipeTime }}</small>
+          </h3>
+          <small class="mt-2">{{ recipe.type }}</small>
+        </div>
+        <p class="mb-1">{{ recipe.ingredients | ingredients }}</p>
+        <small>
+          <span *ngIf="recipe.alreadyDone">
+            <fa name="check"></fa> Déjà goutée</span>
+          <span *ngIf="!recipe.alreadyDone">
+            <fa name="times"></fa> Jamais réalisée</span>
+          &nbsp;&nbsp;
+          <fa name="clock-o"></fa>{{ recipe.time | realRecipeTime }}
+        </small>
       </div>
-      <!-- <div class="mx-2 py-3 stock-item-content rounded" *ngIf="!filter || stock.aliment.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1 "> -->
-    </div>
+    </a>
   </div>
 </div>

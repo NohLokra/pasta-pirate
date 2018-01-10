@@ -11,7 +11,7 @@
             <h5 class="mb-1"><img [src]="'/assets/images/' + planning.menu.starter.image" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.starter.name }}</h5>
             <small>Entrée</small>
           </div>
-          <p class="mb-1">Choux, tchoins, salade, truc.</p>
+          <p class="mb-1">{{ planning.menu.starter.ingredients | ingredients }}</p>
           <small>
             <span *ngIf="planning.menu.starter.alreadyDone"><fa name="check"></fa> Déjà goutée</span>
             <span *ngIf="!planning.menu.starter.alreadyDone"><fa name="times"></fa> Jamais réalisée</span>
@@ -24,7 +24,7 @@
             <h5 class="mb-1"><img [src]="'/assets/images/' + planning.menu.dish.image" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.dish.name }}</h5>
             <small>Plat</small>
           </div>
-          <p class="mb-1"><span *ngFor="let ingredient of planning.menu.dish.ingredients">{{ ingredient.aliment.name + ', ' | lowercase }}</span>Salade, tomate, tchoin, oignons, steak.</p>
+          <p class="mb-1">{{ planning.menu.dish.ingredients | ingredients }}</p>
           <small>
             <span *ngIf="planning.menu.dish.alreadyDone"><fa name="check"></fa> Déjà goutée</span>
             <span *ngIf="!planning.menu.dish.alreadyDone"><fa name="times"></fa> Jamais réalisée</span>
@@ -37,7 +37,7 @@
             <h5 class="mb-1"><img src="/assets/images/icons/coin.png" class="float-left mr-2" style="margin-top: -1px;" width="24" width="24"> {{ planning.menu.dessert.name }}</h5>
             <small>Dessert</small>
           </div>
-          <p class="mb-1">Choux, tchoins, salade, truc.</p>
+          <p class="mb-1">{{ planning.menu.dessert.ingredients | ingredients }}</p>
           <small>
             <span *ngIf="planning.menu.dessert.alreadyDone"><fa name="check"></fa> Déjà goutée</span>
             <span *ngIf="!planning.menu.dessert.alreadyDone"><fa name="times"></fa> Jamais réalisée</span>

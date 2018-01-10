@@ -1,0 +1,14 @@
+@import "../../../variables";
+
+.recipe-item {
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+
+    &>div {
+      border-radius: 5px;
+      background-color: lighten($primary, 35);
+    }
+  }
+}
