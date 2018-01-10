@@ -8,8 +8,9 @@ import { RecipeModel } from '../../models/recipe.model';
 })
 export class RecipeListComponent implements OnInit {
 
-  @Input()
-  recipes: RecipeModel[];
+  @Input() recipes: RecipeModel[];
+
+  @Input() filter: string;
 
   constructor() { }
 

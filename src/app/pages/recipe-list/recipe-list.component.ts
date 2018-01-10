@@ -11,6 +11,8 @@ export class RecipeListPageComponent implements OnInit {
 
   recipes: RecipeModel[];
 
+  searchedAlimentName: string;
+
   constructor(
     private _recipeService: RecipeService
   ) { }
