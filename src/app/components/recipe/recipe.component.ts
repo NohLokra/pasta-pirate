@@ -1,4 +1,5 @@
 import { Component, OnInit, DoCheck, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
+import * as ntpp from 'ntpp';
 
 import { RecipeModel } from '../../models/recipe.model';
 import { StockModel } from '../../models/stock.model';
