@@ -3,7 +3,7 @@
   <fa name="circle-o-notch" class="my-5 text-center loading-cog" animation="spin" size="5x" *ngIf="!recipes"></fa>
   <div class="card-body px-2 pt-3 pb-0 recipes row" *ngIf="recipes">
     <ng-container *ngFor="let recipe of recipes">
-      <a class="recipe-item mb-3 col-lg-4" href="#" *ngIf="!filter || recipe.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1">
+      <a class="recipe-item mb-3 col-lg-4" [routerLink]="['/', 'recipe', recipe.id]" *ngIf="!filter || recipe.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1">
         <div class="p-2">
           <div class="d-flex w-100 justify-content-between">
             <h3>

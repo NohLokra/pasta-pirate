@@ -35,14 +35,14 @@ export class RecipeComponent implements OnInit, DoCheck {
 
   checkIngredients() {
     this.recipe.ingredients.forEach(ingredient => {
-      let alimentStock = this.stocks.find(x => x.aliment.id == ingredient.aliment.id);
-
-      let alimentShoppingList = this.shoppingList.ingredients.find(x => x.aliment.id == ingredient.aliment.id);
-
       let quantityToFind = ingredient.quantity;
 
-      if (alimentStock) {
-        quantityToFind -= alimentStock.quantity;
+      if (this.stocks) {
+        let alimentStock = this.stocks.find(x => x.aliment.id == ingredient.aliment.id);
+
+        if (alimentStock) {
+          quantityToFind -= alimentStock.quantity;
+        }
       }
 
       if (quantityToFind <= 0) {
@@ -52,8 +52,12 @@ export class RecipeComponent implements OnInit, DoCheck {
         ingredient.isInStock = false;
       }
 
-      if (alimentShoppingList) {
-        quantityToFind -= alimentShoppingList.quantity;
+      if (this.shoppingList) {
+        let alimentShoppingList = this.shoppingList.ingredients.find(x => x.aliment.id == ingredient.aliment.id);
+
+        if (alimentShoppingList) {
+          quantityToFind -= alimentShoppingList.quantity;
+        }
       }
 
       if (quantityToFind <= 0) {

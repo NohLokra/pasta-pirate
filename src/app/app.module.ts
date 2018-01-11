@@ -9,6 +9,7 @@ import { HomePageComponent } from './pages/home/home.component';
 import { AboutPageComponent } from './pages/about/about.component';
 import { StockPageComponent } from './pages/stock/stock.component';
 import { RecipeListPageComponent } from './pages/recipe-list/recipe-list.component';
+import { RecipePageComponent } from './pages/recipe/recipe.component';
 
 import { StockService } from './services/stock.service';
 import { FakeStockService } from './services/fake.stock.service';
@@ -44,6 +45,7 @@ import { IngredientsPipe } from './pipes/ingredients.pipe';
     HomePageComponent,
     AboutPageComponent,
     StockPageComponent,
+    RecipePageComponent,
     RecipeListPageComponent,
     QuantityPipe,
     ShoppingListComponent,
