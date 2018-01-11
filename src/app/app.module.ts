@@ -39,6 +39,7 @@ import { FakeAlimentService } from './services/fake.aliment.service';
 import { AlimentService } from './services/aliment.service';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { IngredientsPipe } from './pipes/ingredients.pipe';
+import { MenuTypePipe } from './pipes/menu-type.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { IngredientsPipe } from './pipes/ingredients.pipe';
     StockComponent,
     RealRecipeTimePipe,
     RecipeListComponent,
-    IngredientsPipe
+    IngredientsPipe,
+    MenuTypePipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'universal-demo-v5' }),
