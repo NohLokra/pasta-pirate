@@ -17,4 +17,12 @@ export class PlanningService implements IPlanningService {
   getPlanningForDate(date: Date): Observable<PlanningModel[]> {
     throw new Error("Method not implemented.");
   }
+
+  getPlanningForNextDays(date: Date, numberOfDays: number) : Observable<PlanningModel[]> {
+    throw new Error("Method not implemented.");
+  }
+  
+  getNextDay(days: number): Date {
+    throw new Error("Method not implemented.");
+  }
 }
