@@ -45,7 +45,7 @@
           <h5><img [src]="'/assets/images/' + model.image" alt="" width="24"> {{ model.name }}</h5>
         </ng-template>
 
-        <input [(ngModel)]="alimentNameSelected" [typeahead]="aliments" [typeaheadItemTemplate]="customIngredientTemplate" typeaheadOptionField="name" (typeaheadOnSelect)="alimentOnSelect($event)" class="form-control" placeholder="Ingrédient">
+        <input [(ngModel)]="alimentNameSelected" [typeahead]="aliments" [typeaheadItemTemplate]="customIngredientTemplate" typeaheadOptionField="name" (typeaheadOnSelect)="alimentOnSelect($event)" class="form-control" autofocus="true" placeholder="Ingrédient">
       
         <button class="btn btn-primary btn-block mt-3" (click)="addIngredient()">Ajouter</button>
       </div>

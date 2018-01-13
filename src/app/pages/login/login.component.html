@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 offset-4">
+      <div class="card text-white border-primary mt-5 w-100">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label>Email pirate:</label>
+              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="barberousse@pillerungallion.com" [(ngModel)]="email" name="email">
+            </div>
+            <div class="form-group">
+              <label>Mot de passe pirate:</label>
+              <input type="password" class="form-control" placeholder="P@ssw0rrrrrrrrrrd!" [(ngModel)]="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary float-right" (click)="login()">Monter à bord</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

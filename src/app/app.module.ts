@@ -11,6 +11,7 @@ import { StockPageComponent } from './pages/stock/stock.component';
 import { RecipeListPageComponent } from './pages/recipe-list/recipe-list.component';
 import { RecipePageComponent } from './pages/recipe/recipe.component';
 import { PlanningPageComponent } from './pages/planning/planning.component';
+import { LoginPageComponent } from './pages/login/login.component';
 
 import { StockService } from './services/stock.service';
 import { FakeStockService } from './services/fake.stock.service';
@@ -40,6 +41,8 @@ import { AlimentService } from './services/aliment.service';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { IngredientsPipe } from './pipes/ingredients.pipe';
 import { MenuTypePipe } from './pipes/menu-type.pipe';
+import { AuthService } from './services/auth.service';
+import { FakeAuthService } from './services/fake.auth.service';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,7 @@ import { MenuTypePipe } from './pipes/menu-type.pipe';
     RecipePageComponent,
     RecipeListPageComponent,
     PlanningPageComponent,
+    LoginPageComponent,
     QuantityPipe,
     ShoppingListComponent,
     RecipeComponent,
@@ -77,7 +81,8 @@ import { MenuTypePipe } from './pipes/menu-type.pipe';
     {provide: RecipeService, useClass: FakeRecipeService},
     {provide: ShoppingListService, useClass: FakeShoppingListService},
     {provide: PlanningService, useClass: FakePlanningService},
-    {provide: AlimentService, useClass: FakeAlimentService}
+    {provide: AlimentService, useClass: FakeAlimentService},
+    {provide: AuthService, useClass: FakeAuthService}
   ],
   bootstrap: [AppComponent]
 })

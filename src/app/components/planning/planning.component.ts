@@ -36,8 +36,6 @@ export class PlanningComponent implements OnInit {
     for (let i = 0; i < this.numberOfDays; i++) {
       this.days.push(this._planningService.getNextDay(i));
     }
-
-    console.log(this.plannings);
   }
 
   selectRecipe(recipe: RecipeModel) {
