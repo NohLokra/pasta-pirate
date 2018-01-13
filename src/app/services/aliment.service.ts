@@ -13,6 +13,6 @@ export class AlimentService implements IAlimentService {
   ) { }
 
   getAliments(): Observable<AlimentModel[]> {
-    throw new Error("Method not implemented.");
+    return this._http.get<any>('http://localhost:9000/api/aliments');
   }
 }

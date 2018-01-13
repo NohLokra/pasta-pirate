@@ -1,5 +1,5 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -43,6 +43,7 @@ import { IngredientsPipe } from './pipes/ingredients.pipe';
 import { MenuTypePipe } from './pipes/menu-type.pipe';
 import { AuthService } from './services/auth.service';
 import { FakeAuthService } from './services/fake.auth.service';
+import { ApiInterceptor } from './services/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -81,8 +82,9 @@ import { FakeAuthService } from './services/fake.auth.service';
     {provide: RecipeService, useClass: FakeRecipeService},
     {provide: ShoppingListService, useClass: FakeShoppingListService},
     {provide: PlanningService, useClass: FakePlanningService},
-    {provide: AlimentService, useClass: FakeAlimentService},
-    {provide: AuthService, useClass: FakeAuthService}
+    {provide: AlimentService, useClass: AlimentService},
+    {provide: AuthService, useClass: FakeAuthService},
+    {provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
