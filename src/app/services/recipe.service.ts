@@ -16,6 +16,10 @@ export class RecipeService implements IRecipeService {
     throw new Error("Method not implemented.");
   }
 
+  getRecipes(query?: any, limit?: number, offset?: number): Observable<RecipeModel[]> {
+    throw new Error("Method not implemented.");
+  }
+
   getRecipe(id: string): Observable<RecipeModel> {
     throw new Error("Method not implemented.");
   }

@@ -75,6 +75,20 @@ export class FakeRecipeService implements IRecipeService {
       sub.complete();
     });
   }
+
+  getRecipes({ query: { type } }, limit?: number, offset?: number): Observable<RecipeModel[]> {
+    let numberFound = 0;
+    let recipes = this.recipes;
+
+    console.log(this);
+
+    recipes = recipes.filter(x => x.type == type || !type);
+
+    return new Observable(sub => {
+      sub.next(recipes);
+      sub.complete();
+    });
+  }
   
   getRecipe(id: string): Observable<RecipeModel> {
     return new Observable(sub => {

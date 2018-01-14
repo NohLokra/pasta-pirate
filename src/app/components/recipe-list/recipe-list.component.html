@@ -1,12 +1,12 @@
 <div class="card border-primary mb-3 w-100">
   <div class="card-header px-3">
     Liste des cartes au trésor
-    <button class="btn btn-outline-secondary float-right" (click)="selectedAddRecipe()">Ajouter une recette</button>
+    <button class="btn btn-outline-secondary float-right" *ngIf="addButton" (click)="selectedAddRecipe()">Ajouter une recette</button>
   </div>
   <fa name="circle-o-notch" class="my-5 text-center loading-cog" animation="spin" size="5x" *ngIf="!recipes"></fa>
   <div class="card-body px-2 pt-3 pb-0 recipes row" *ngIf="recipes">
     <ng-container *ngFor="let recipe of recipes">
-      <a class="recipe-item mb-3 col-lg-4" [routerLink]="['/', 'recipe', recipe.id]" *ngIf="!filter || recipe.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1">
+      <a (click)="clickRecipe(recipe)" [ngClass]="['recipe-item', 'mb-3', 'col-lg-' + columnWidth]" href="javascript:void(0);" *ngIf="!filter || recipe.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1">
         <div class="p-2">
           <div class="d-flex w-100 justify-content-between">
             <h3>
@@ -28,12 +28,12 @@
   </div>
 </div>
 
-<div bsModal #planningAddModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div bsModal #recipeAddModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Ajouter du stock</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="planningAddModal.hide()" style="color: black;">
+        <h4 class="modal-title pull-left">Ajouter une recette</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="recipeAddModal.hide()" style="color: black;">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

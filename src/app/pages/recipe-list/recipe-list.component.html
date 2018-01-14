@@ -13,7 +13,7 @@
     </div>
     
     <div class="col-xs-12 col-sm-9">
-      <app-recipe-list [recipes]="recipes" [filter]="searchedAlimentName"></app-recipe-list>
+      <app-recipe-list (clickedRecipe)="clickedRecipe($event)" [recipes]="recipes" [filter]="searchedAlimentName"></app-recipe-list>
     </div>
   </div>
 </div>
