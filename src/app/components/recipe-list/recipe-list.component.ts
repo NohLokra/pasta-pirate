@@ -65,7 +65,7 @@ export class RecipeListComponent implements OnInit {
       return;
     }
 
-    this.newRecipe.time = this._recipeService.annoyingTimeToMotherFuckingRecipeTime(time);
+    this.newRecipe.time = this._recipeService.timeStrToSeconds(time);
   }
 
   saveRecipe() {

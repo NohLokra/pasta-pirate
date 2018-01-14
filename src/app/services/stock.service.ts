@@ -8,13 +8,13 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class StockService implements IStockService {
-  
+
   constructor(
     private _http: HttpClient
   ) { }
 
   getStock() : Observable<StockModel[]> {
-    throw new Error("Method not implemented.");
+    return this._http.get<StockModel[]>("http://localhost:9000/api/stock");
   }
 
   addAlimentToStock(aliment: AlimentModel): Observable<StockModel[]> {

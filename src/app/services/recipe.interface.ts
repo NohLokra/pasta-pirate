@@ -8,9 +8,9 @@ export interface IRecipeService {
 
   saveRecipe(recipe: RecipeModel): Observable<RecipeModel>;
 
-  recipeTimeToRealFuckingTime(time: number) : string;
+  secondsToTimeStr(time: number) : string;
 
-  annoyingTimeToMotherFuckingRecipeTime(time: string): number;
+  timeStrToSeconds(time: string): number;
 
   isAlreadyDone(recipe: RecipeModel) : boolean;
 }

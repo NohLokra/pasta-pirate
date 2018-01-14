@@ -15,13 +15,17 @@ export class PlanningService implements IPlanningService {
   ) { }
 
   getPlanningForDate(date: Date): Observable<PlanningModel[]> {
-    throw new Error("Method not implemented.");
+    return this._http.get<PlanningModel[]>("http://localhost:9000/api/plannings/getForDate", {
+      params: {
+        date: date.toString()
+      }
+    });
   }
 
   getPlanningForNextDays(date: Date, numberOfDays: number) : Observable<PlanningModel[]> {
     throw new Error("Method not implemented.");
   }
-  
+
   getNextDay(days: number): Date {
     throw new Error("Method not implemented.");
   }

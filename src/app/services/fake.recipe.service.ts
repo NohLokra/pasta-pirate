@@ -75,7 +75,7 @@ export class FakeRecipeService implements IRecipeService {
       sub.complete();
     });
   }
-  
+
   getRecipe(id: string): Observable<RecipeModel> {
     return new Observable(sub => {
       sub.next(this.recipes.find(x => x.id == id));
@@ -91,14 +91,14 @@ export class FakeRecipeService implements IRecipeService {
     return new Observable(sub => {
       sub.next(recipe);
       sub.complete();
-    }); 
+    });
   }
 
-  annoyingTimeToMotherFuckingRecipeTime(time: string): number {
+  timeStrToSeconds(time: string): number {
     return +time.split('h')[0] * 60 * 60 + +time.split('h')[1] * 60;
   }
 
-  recipeTimeToRealFuckingTime(time: number): string {
+  secondsToTimeStr(time: number): string {
     var date = new Date(null);
     date.setSeconds(time);
     return date.toISOString().substr(11, 5).replace(':', 'h');
