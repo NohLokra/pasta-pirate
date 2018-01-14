@@ -21,14 +21,14 @@ export class AuthService implements IAuthService {
   }
 
   register(user: UserModel): Observable<any> {
-    throw new Error("Method not implemented.");
-    // let params = new HttpParams();
-    // for ( var index in user ) {
-    //   console.log(user[index]);
-    // }
-    //
-    // return this._http.post("http://localhost:9000/api/users", null, {
-    //   params: user
-    // });
+    // Ici on se fait jeter si on passe de tenter directement user en paramètre. Donc on prépare le HttpParams à la main
+    let params = new HttpParams();
+    for ( let field in user ) {
+      params.set(field, user[field]);
+    }
+
+    return this._http.post("http://localhost:9000/api/users", null, {
+      params: params
+    });
   }
 }

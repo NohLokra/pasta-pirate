@@ -34,6 +34,8 @@ export class RecipeComponent implements OnInit, DoCheck {
   }
 
   checkIngredients() {
+    if ( !this.recipe ) return;
+     
     this.recipe.ingredients.forEach(ingredient => {
       let quantityToFind = ingredient.quantity;
 

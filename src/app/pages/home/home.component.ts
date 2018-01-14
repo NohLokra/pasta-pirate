@@ -33,7 +33,7 @@ export class HomePageComponent implements OnInit {
     private _planningService: PlanningService
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this._stockService.getStock().subscribe(data => {
       this.stocks = data;
     });
@@ -67,7 +67,7 @@ export class HomePageComponent implements OnInit {
   addedIngredient(ingredient: IngredientModel) {
     let addedIngredient = this.shoppingList.ingredients.find(x => x.aliment.id == ingredient.aliment.id);
     let stockedIngredient = this.stocks.find(x => x.aliment.id == ingredient.aliment.id);
-    
+
     let numberToAdd = ingredient.quantity;
     if (stockedIngredient) {
       numberToAdd -= stockedIngredient.quantity;

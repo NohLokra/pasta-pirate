@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { IStockService } from './stock.interface';
 import { StockModel } from '../models/stock.model';
@@ -14,10 +14,14 @@ export class StockService implements IStockService {
   ) { }
 
   getStock() : Observable<StockModel[]> {
-    return this._http.get<StockModel[]>("http://localhost:9000/api/stock");
+    return this._http.get<StockModel[]>("http://localhost:9000/api/stocks");
   }
 
   addAlimentToStock(aliment: AlimentModel): Observable<StockModel[]> {
-    throw new Error("Method not implemented.");
+    console.log(aliment);
+
+    return this._http.post<StockModel[]>("http://localhost:9000/api/stocks", null, {
+      params: {...aliment}
+    });
   }
 }

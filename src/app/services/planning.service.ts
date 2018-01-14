@@ -23,10 +23,20 @@ export class PlanningService implements IPlanningService {
   }
 
   getPlanningForNextDays(date: Date, numberOfDays: number) : Observable<PlanningModel[]> {
-    throw new Error("Method not implemented.");
+    let result = new Observable<PlanningModel[]>();
+
+    for ( let i = 0 ; i < numberOfDays ; i++ ) {
+      let request = this._http.get("http://localhost:9000/api/plannings")
+      result = Rx.Observable.merge(result, request);
+    }
+
+    return result;
   }
 
   getNextDay(days: number): Date {
-    throw new Error("Method not implemented.");
+    let today = new Date();
+    today.setDate(today.getDate() + days);
+
+    return today;
   }
 }

@@ -15,6 +15,6 @@ export class ShoppingListService implements IShoppingListService {
   ) { }
 
   getLastShoppingList(): Observable<ShoppingListModel> {
-    return this._http.get<ShoppingListModel>("http://localhost:9000/api/shoppingLists");
+    return this._http.get<ShoppingListModel>("http://localhost:9000/api/shopping-lists");
   }
 }

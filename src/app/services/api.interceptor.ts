@@ -47,13 +47,14 @@ export class ApiInterceptor implements HttpInterceptor {
 			}
 
 			// Puis on passe la requête à la suite et on ajoute un traitement de la réponse
-			return next.handle(resultRequest).do((event: HttpEvent<any>) => {
+			return next.handle(resultRequest).map((event: HttpEvent<any>) => {
 				// L'API nous renvoie un résultat de forme différente que ce que les components attendent
 				// Ici on fait un sorte de respecter le format attendu
 				if (event instanceof HttpResponse ) {
 					let resultEvent = event.clone({
 						body: event.body.rows
 					});
+
 					return resultEvent;
 				}
 

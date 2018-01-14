@@ -36,6 +36,7 @@ export class StockComponent implements OnInit {
 
   ngOnInit() {
     this._ingredientService.getAliments().subscribe(data => {
+      console.log(data);
       this.aliments = data;
     });
   }

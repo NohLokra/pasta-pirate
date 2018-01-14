@@ -29,6 +29,11 @@ export class ShoppingListComponent implements OnInit {
   calculateProgression() {
     let numberDone = 0;
 
+    if ( !this.shoppingList ) {
+      this.progression = 0;
+      return;
+    }
+
     this.shoppingList.ingredients.forEach(ingredient => {
       if (ingredient.isTaken) numberDone++;
     });

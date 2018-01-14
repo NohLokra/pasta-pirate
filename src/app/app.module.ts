@@ -86,8 +86,8 @@ import { ApiInterceptor } from './services/api.interceptor';
     {provide: RecipeService, useClass: FakeRecipeService},
     {provide: ShoppingListService, useClass: FakeShoppingListService},
     {provide: PlanningService, useClass: FakePlanningService},
-    {provide: AlimentService, useClass: AlimentService},
-    {provide: AuthService, useClass: AuthService},
+    {provide: AlimentService, useClass: FakeAlimentService},
+    {provide: AuthService, useClass: FakeAuthService},
     {provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]

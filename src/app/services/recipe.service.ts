@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { IRecipeService } from './recipe.interface';
 import { RecipeModel } from '../models/recipe.model';
@@ -21,7 +21,14 @@ export class RecipeService implements IRecipeService {
   }
 
   saveRecipe(recipe: RecipeModel): Observable<RecipeModel> {
-    throw new Error("Method not implemented.");
+    let params = new HttpParams();
+    for ( let field in recipe ) {
+      params.set(field, recipe[field]);
+    }
+
+    return this._http.post<RecipeModel>("http://localhost:9000/api/recipes", null, {
+      params: params
+    });
   }
 
   secondsToTimeStr(time: number): string {
