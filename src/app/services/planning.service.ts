@@ -15,7 +15,7 @@ export class PlanningService implements IPlanningService {
   ) { }
 
   getPlanningForDate(date: Date): Observable<PlanningModel[]> {
-    return this._http.get<PlanningModel[]>("http://localhost:9000/api/plannings/getForDate", {
+    return this._http.get<PlanningModel[]>("http://localhost:9000/api/plannings", {
       params: {
         date: date.toString()
       }
