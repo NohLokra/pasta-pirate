@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { RecipeModel } from '../../models/recipe.model';
 import { AlimentService } from '../../services/aliment.service';
 import { IngredientModel } from '../../models/ingredient.model';
@@ -13,12 +13,19 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class RecipeListComponent implements OnInit {
 
-  @ViewChild('planningAddModal')
-  planningAddModal: ModalDirective;
+  @ViewChild('recipeAddModal')
+  recipeAddModal: ModalDirective;
 
   @Input() recipes: RecipeModel[];
 
   @Input() filter: string;
+
+  @Input() addButton: boolean = true;
+
+  @Input() columnWidth: number = 4;
+
+  @Output()
+  clickedRecipe = new EventEmitter<RecipeModel>();
 
   newRecipe: RecipeModel;
   newRecipeTime: string = "";
@@ -54,7 +61,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   selectedAddRecipe() {
-    this.planningAddModal.show();
+    this.recipeAddModal.show();
   }
 
   changeTime(time: string) {
@@ -79,7 +86,11 @@ export class RecipeListComponent implements OnInit {
       this.newRecipe.alreadyDone = false;
       this.newRecipe.image = "icons/coin.png";
 
-      this.planningAddModal.hide();
+      this.recipeAddModal.hide();
     });
+  }
+
+  clickRecipe(recipe: RecipeModel) {
+    this.clickedRecipe.emit(recipe);
   }
 }

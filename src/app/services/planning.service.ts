@@ -5,7 +5,8 @@ import { IPlanningService } from './planning.interface';
 import { StockModel } from '../models/stock.model';
 import { AlimentModel, UNIT_ENUM } from '../models/aliment.model';
 import { Observable } from 'rxjs/Observable';
-import { PlanningModel } from '../models/planning.model';
+import { PlanningModel, MENU_TYPE_ENUM } from '../models/planning.model';
+import { RecipeModel } from '../models/recipe.model';
 
 @Injectable()
 export class PlanningService implements IPlanningService {
@@ -22,6 +23,10 @@ export class PlanningService implements IPlanningService {
     });
   }
 
+  getPlanningForDateAndMenuType(date: Date, menuType: MENU_TYPE_ENUM): Observable<PlanningModel[]> {
+    throw new Error("Method not implemented.");
+  }
+
   getPlanningForNextDays(date: Date, numberOfDays: number) : Observable<PlanningModel[]> {
     let result = new Observable<PlanningModel[]>();
 
@@ -33,6 +38,10 @@ export class PlanningService implements IPlanningService {
     return result;
   }
 
+  savePlanning(planning: PlanningModel): Observable<PlanningModel> {
+    throw new Error("Method not implemented.");
+  }
+  
   getNextDay(days: number): Date {
     let today = new Date();
     today.setDate(today.getDate() + days);

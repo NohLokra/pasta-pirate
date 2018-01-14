@@ -12,6 +12,8 @@ export class ShoppingListComponent implements OnInit {
   @Input()
   shoppingList: ShoppingListModel;
 
+  @Input() filter: string;
+
   progression: number;
 
   constructor() { }

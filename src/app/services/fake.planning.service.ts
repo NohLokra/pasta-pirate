@@ -5,7 +5,7 @@ import { StockModel } from '../models/stock.model';
 import { AlimentModel, UNIT_ENUM } from '../models/aliment.model';
 import { Observable } from 'rxjs/Observable';
 import { PlanningModel, MENU_TYPE_ENUM } from '../models/planning.model';
-import { RECIPE_TYPE } from '../models/recipe.model';
+import { RECIPE_TYPE, RecipeModel } from '../models/recipe.model';
 
 @Injectable()
 export class FakePlanningService implements IPlanningService {
@@ -160,9 +160,44 @@ export class FakePlanningService implements IPlanningService {
     });
   }
 
+  getPlanningForDateAndMenuType(date: Date, menuType: MENU_TYPE_ENUM): Observable<PlanningModel[]> {
+    let planning = this.planning.find(x =>
+      x.date.getDate() == date.getDate() &&
+      x.date.getMonth() == date.getMonth() &&
+      x.date.getFullYear() == date.getFullYear() &&
+      x.menu_type.toLowerCase() == menuType
+    );
+
+    return new Observable(sub => {
+      sub.next(this.planning);
+      sub.complete();
+    });
+  }
+
   getPlanningForNextDays(date: Date, numberOfDays: number) : Observable<PlanningModel[]> {
     return new Observable(sub => {
       sub.next(this.planning);
+      sub.complete();
+    });
+  }
+
+  savePlanning(planning: PlanningModel): Observable<PlanningModel> {
+    console.log(planning);
+
+    let existingPlanning = this.planning.find(x =>
+      x.date.getDate() == planning.date.getDate() &&
+      x.date.getMonth() == planning.date.getMonth() &&
+      x.date.getFullYear() == planning.date.getFullYear() &&
+      x.menu_type.toLowerCase() == planning.menu_type
+    );
+
+    if (existingPlanning)
+      existingPlanning = planning;
+    else
+      this.planning.push(planning);
+
+    return new Observable(sub => {
+      sub.next(planning);
       sub.complete();
     });
   }

@@ -16,6 +16,10 @@ export class RecipeService implements IRecipeService {
     return this._http.get<RecipeModel[]>("http://localhost:9000/api/recipes");
   }
 
+  getRecipes(query?: any, limit?: number, offset?: number): Observable<RecipeModel[]> {
+    throw new Error("Method not implemented.");
+  }
+
   getRecipe(id: string): Observable<RecipeModel> {
     return this._http.get<RecipeModel>("http://localhost:9000/api/recipes/" + id);
   }
