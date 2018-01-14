@@ -12,7 +12,7 @@ export class RecipeModel {
 }
 
 export enum RECIPE_TYPE {
-  STARTER = "Entrée",
-  DISH = "Plat",
-  DESSERT = "Dessert"
+  STARTER = "starter",
+  DISH = "dish",
+  DESSERT = "dessert"
 }

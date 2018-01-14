@@ -20,7 +20,7 @@
               <fa name="clock-o"></fa>{{ getPlanningForDayAndMenuType(day, menuEnumKey).menu.starter.time | realRecipeTime }}
             </small>
           </a>
-          <a href="javascript:void(0);" *ngIf="!getPlanningForDayAndMenuType(day, menuEnumKey) || !getPlanningForDayAndMenuType(day, menuEnumKey).menu.starter" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start active': true}">
+          <a href="javascript:void(0);" (click)="selectAddRecipe(day, menuEnumKey, 'starter')" *ngIf="showAdd && (!getPlanningForDayAndMenuType(day, menuEnumKey) || !getPlanningForDayAndMenuType(day, menuEnumKey).menu.starter)" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start active': true}">
             <fa name="plus"></fa> Ajouter une entrée
           </a>
           <a *ngIf="getPlanningForDayAndMenuType(day, menuEnumKey) && getPlanningForDayAndMenuType(day, menuEnumKey).menu.dish" href="javascript:void(0);" (click)="selectRecipe(getPlanningForDayAndMenuType(day, menuEnumKey).menu.dish)" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start': true, 'active': recipeSelected && getPlanningForDayAndMenuType(day, menuEnumKey).menu.dish.id == recipeSelected.id}">
@@ -36,7 +36,7 @@
               <fa name="clock-o"></fa>{{ getPlanningForDayAndMenuType(day, menuEnumKey).menu.dish.time | realRecipeTime }}
             </small>
           </a>
-          <a href="javascript:void(0);" *ngIf="!getPlanningForDayAndMenuType(day, menuEnumKey) || !getPlanningForDayAndMenuType(day, menuEnumKey).menu.dish" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start active': true}">
+          <a href="javascript:void(0);" *ngIf="showAdd && (!getPlanningForDayAndMenuType(day, menuEnumKey) || !getPlanningForDayAndMenuType(day, menuEnumKey).menu.dish)" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start active': true}">
             <fa name="plus"></fa> Ajouter un plat
           </a>
           <a *ngIf="getPlanningForDayAndMenuType(day, menuEnumKey) && getPlanningForDayAndMenuType(day, menuEnumKey).menu.dessert" href="javascript:void(0);" (click)="selectRecipe(getPlanningForDayAndMenuType(day, menuEnumKey).menu.dessert)" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start': true, 'active': recipeSelected && getPlanningForDayAndMenuType(day, menuEnumKey).menu.dessert.id == recipeSelected.id}">
@@ -52,7 +52,7 @@
               <fa name="clock-o"></fa>{{ getPlanningForDayAndMenuType(day, menuEnumKey).menu.dessert.time | realRecipeTime }}
             </small>
           </a>
-          <a href="javascript:void(0);" *ngIf="!getPlanningForDayAndMenuType(day, menuEnumKey) || !getPlanningForDayAndMenuType(day, menuEnumKey).menu.dessert" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start active': true}">
+          <a href="javascript:void(0);" *ngIf="showAdd && (!getPlanningForDayAndMenuType(day, menuEnumKey) || !getPlanningForDayAndMenuType(day, menuEnumKey).menu.dessert)" [ngClass]="{'list-group-item list-group-item-action flex-column align-items-start active': true}">
             <fa name="plus"></fa> Ajouter un dessert
           </a>
         </div>

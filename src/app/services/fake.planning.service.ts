@@ -42,7 +42,7 @@ export class FakePlanningService implements IPlanningService {
             }
           ],
           type: RECIPE_TYPE.STARTER,
-          time: 0.3334
+          time: 1200
         },
         dish: {
           id: "q6f8e4gqzf4eg68fsef4848z",
@@ -70,7 +70,7 @@ export class FakePlanningService implements IPlanningService {
             }
           ],
           type: RECIPE_TYPE.STARTER,
-          time: 1
+          time: 3600
         }
       },
       menu_type: MENU_TYPE_ENUM.BREAKFAST
@@ -108,7 +108,7 @@ export class FakePlanningService implements IPlanningService {
             }
           ],
           type: RECIPE_TYPE.DISH,
-          time: 0.3334
+          time: 1200
         }
       },
       menu_type: MENU_TYPE_ENUM.LUNCH
@@ -146,7 +146,7 @@ export class FakePlanningService implements IPlanningService {
             }
           ],
           type: RECIPE_TYPE.DISH,
-          time: 0.3334
+          time: 1200
         }
       },
       menu_type: MENU_TYPE_ENUM.LUNCH
