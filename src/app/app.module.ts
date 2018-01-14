@@ -12,6 +12,7 @@ import { RecipeListPageComponent } from './pages/recipe-list/recipe-list.compone
 import { RecipePageComponent } from './pages/recipe/recipe.component';
 import { PlanningPageComponent } from './pages/planning/planning.component';
 import { LoginPageComponent } from './pages/login/login.component';
+import { ShoppingListPageComponent } from './pages/shopping-list/shopping-list.component';
 
 import { StockService } from './services/stock.service';
 import { FakeStockService } from './services/fake.stock.service';
@@ -59,6 +60,7 @@ import { ApiInterceptor } from './services/api.interceptor';
     RecipeListPageComponent,
     PlanningPageComponent,
     LoginPageComponent,
+    ShoppingListPageComponent,
     QuantityPipe,
     ShoppingListComponent,
     RecipeComponent,

@@ -8,6 +8,7 @@ import { RecipeListPageComponent } from './pages/recipe-list/recipe-list.compone
 import { RecipePageComponent } from './pages/recipe/recipe.component';
 import { PlanningPageComponent } from './pages/planning/planning.component';
 import { LoginPageComponent } from './pages/login/login.component';
+import { ShoppingListPageComponent } from './pages/shopping-list/shopping-list.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'recipes', component: RecipeListPageComponent },
   { path: 'recipe/:id', component: RecipePageComponent },
   { path: 'planning', component: PlanningPageComponent },
+  { path: 'shopping', component: ShoppingListPageComponent },
   { path: '**', redirectTo: '/' }
 ];
 
