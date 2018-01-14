@@ -6,7 +6,11 @@ export interface IRecipeService {
 
   getRecipe(id: string) : Observable<RecipeModel>;
 
+  saveRecipe(recipe: RecipeModel): Observable<RecipeModel>;
+
   recipeTimeToRealFuckingTime(time: number) : string;
+
+  annoyingTimeToMotherFuckingRecipeTime(time: string): number;
 
   isAlreadyDone(recipe: RecipeModel) : boolean;
 }

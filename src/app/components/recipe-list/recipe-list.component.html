@@ -1,5 +1,8 @@
 <div class="card border-primary mb-3 w-100">
-  <div class="card-header px-3">Liste des cartes au trésor</div>
+  <div class="card-header px-3">
+    Liste des cartes au trésor
+    <button class="btn btn-outline-secondary float-right" (click)="selectedAddRecipe()">Ajouter une recette</button>
+  </div>
   <fa name="circle-o-notch" class="my-5 text-center loading-cog" animation="spin" size="5x" *ngIf="!recipes"></fa>
   <div class="card-body px-2 pt-3 pb-0 recipes row" *ngIf="recipes">
     <ng-container *ngFor="let recipe of recipes">
@@ -22,5 +25,65 @@
         </div>
       </a>
     </ng-container>
+  </div>
+</div>
+
+<div bsModal #planningAddModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Ajouter du stock</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="planningAddModal.hide()" style="color: black;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-3 text-center">
+            <img [src]="'/assets/images/' + newRecipe.image" class="img-fluid mt-1">
+          </div>
+          <div class="col-lg-9 pl-0">
+            <div class="form-group">
+              <label>Nom de la recette</label>
+              <input type="text" class="form-control" placeholder="Rhum marinée au rhum" name="name" [(ngModel)]="newRecipe.name">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Type de la recette</label>
+          <select name="type" class="form-control" [(ngModel)]="newRecipe.type">
+            <option value="starter">Entrée</option>
+            <option value="dish">Plat</option>
+            <option value="dessert">Dessert</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Temps pour réaliser la recette</label>
+          <input type="text" class="form-control" placeholder="06h20" name="time" [ngModel]="newRecipeTime" (ngModelChange)="changeTime($event)">
+          <small class="form-text text-muted">Doit être au format XXhXX.</small>
+        </div>
+        <div class="form-group">
+          <label>Ingrédients</label>
+          <ul class="mx-3 recipe-ingredients-list" *ngIf="newRecipe.ingredients && newRecipe.ingredients.length != 0">
+            <li class="p-1 rounded font-italic" *ngFor="let ingredient of newRecipe.ingredients">
+              <img [src]="'/assets/images/' + ingredient.aliment.image" class="float-left mr-2"> {{ ingredient.aliment.name }} ({{ ingredient.quantity }}{{ ingredient.aliment.unit | quantity }})
+            </li>
+          </ul>
+          <ng-template #customIngredientTemplate let-model="item" let-index="index">
+            <h5>
+              <img [src]="'/assets/images/' + model.image" alt="" width="24"> {{ model.name }}</h5>
+          </ng-template>
+
+          <input [(ngModel)]="alimentNameSelected" [typeahead]="aliments" [typeaheadItemTemplate]="customIngredientTemplate" typeaheadOptionField="name" (typeaheadOnSelect)="alimentOnSelect($event)" class="form-control" autofocus="true" placeholder="Ingrédient">
+        </div>
+        <div class="form-group">
+          <label>Contenu de la recette</label>
+          <textarea class="form-control" rows="7" [(ngModel)]="newRecipe.description"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" (click)="saveRecipe()">Valider</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

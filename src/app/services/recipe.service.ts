@@ -20,11 +20,19 @@ export class RecipeService implements IRecipeService {
     throw new Error("Method not implemented.");
   }
 
+  saveRecipe(recipe: RecipeModel): Observable<RecipeModel> {
+    throw new Error("Method not implemented.");
+  }
+
   recipeTimeToRealFuckingTime(time: number): string {
     var n = new Date(0,0);
     n.setSeconds(+time * 60 * 60);
 
     return n.toTimeString().slice(0, 5);
+  }
+
+  annoyingTimeToMotherFuckingRecipeTime(time: string): number {
+    return +time.match(/\d\d/)[1] * 60 * 60 + +time.match(/\d\d/)[1] * 60;
   }
 
   isAlreadyDone(recipe: RecipeModel): boolean {

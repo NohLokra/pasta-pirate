@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { RecipeModel } from '../../models/recipe.model';
+import { RecipeModel, RECIPE_TYPE } from '../../models/recipe.model';
 import { PlanningModel, MENU_TYPE_ENUM } from '../../models/planning.model';
 import { PlanningService } from '../../services/planning.service';
 import { MenuModel } from '../../models/menu.model';
@@ -21,8 +21,14 @@ export class PlanningComponent implements OnInit {
   @Input()
   numberOfDays: number = 5;
 
+  @Input()
+  showAdd: boolean = false;
+
   @Output()
   selectedRecipe = new EventEmitter<RecipeModel>();
+
+  @Output()
+  selectedAddRecipe = new EventEmitter<any>();
 
   days: Date[];
 
@@ -42,8 +48,12 @@ export class PlanningComponent implements OnInit {
     this.selectedRecipe.emit(recipe);
   }
 
+  selectAddRecipe(day: Date, menuType: MENU_TYPE_ENUM, recipeType: RECIPE_TYPE) {
+    this.selectedAddRecipe.emit({ day: day, menuType: menuType, recipeType: recipeType});
+  }
+
   menuEnumKeys() {
-    var keys = Object.keys(MENU_TYPE_ENUM).map(x => x.toLowerCase());
+    let keys = Object.keys(MENU_TYPE_ENUM).map(x => x.toLowerCase());
     return keys;
   }
 

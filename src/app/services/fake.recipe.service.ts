@@ -37,7 +37,7 @@ export class FakeRecipeService implements IRecipeService {
         }
       ],
       type: RECIPE_TYPE.DISH,
-      time: 0.3334
+      time: 1200
     },
     {
       id: "q6f8e4gqzf4eg68fsef4848z",
@@ -65,7 +65,7 @@ export class FakeRecipeService implements IRecipeService {
         }
       ],
       type: RECIPE_TYPE.STARTER,
-      time: 1
+      time: 3600
     }
   ];
 
@@ -83,11 +83,25 @@ export class FakeRecipeService implements IRecipeService {
     });
   }
 
-  recipeTimeToRealFuckingTime(time: number): string {
-    var n = new Date(0,0);
-    n.setSeconds(+time * 60 * 60);
+  saveRecipe(recipe: RecipeModel): Observable<RecipeModel> {
+    let newId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 15);
 
-    return n.toTimeString().slice(0, 5).replace(':', 'h');
+    recipe.id = newId;
+
+    return new Observable(sub => {
+      sub.next(recipe);
+      sub.complete();
+    }); 
+  }
+
+  annoyingTimeToMotherFuckingRecipeTime(time: string): number {
+    return +time.split('h')[0] * 60 * 60 + +time.split('h')[1] * 60;
+  }
+
+  recipeTimeToRealFuckingTime(time: number): string {
+    var date = new Date(null);
+    date.setSeconds(time);
+    return date.toISOString().substr(11, 5).replace(':', 'h');
   }
 
   isAlreadyDone(recipe: RecipeModel): boolean {
