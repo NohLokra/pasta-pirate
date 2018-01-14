@@ -14,9 +14,6 @@ export class AuthService implements IAuthService {
 
   login(email: string, password: string): Observable<any> {
     return this._http.post("http://localhost:9000/api/auth", null, {
-      params: {
-        access_token: "masterkey"
-      },
       headers: {
         "Authorization": "Basic " + btoa(email + ":" + password)
       }
