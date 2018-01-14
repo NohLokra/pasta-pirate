@@ -7,11 +7,11 @@ import { RecipeService } from '../services/recipe.service';
 export class RealRecipeTimePipe implements PipeTransform {
 
   constructor(private _recipeService: RecipeService) {
-    
+
   }
 
   transform(value: any, args?: any): any {
-    return this._recipeService.recipeTimeToRealFuckingTime(value);
+    return this._recipeService.secondsToTimeStr(value);
   }
 
 }

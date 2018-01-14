@@ -26,6 +26,8 @@ export class LoginPageComponent implements OnInit {
 
     this._authService.login(this.email.toLowerCase(), this.password).subscribe(data => {
       this.error = false;
+      localStorage.setItem("access_token", data.token);
+
       this._router.navigate(['/']);
     }, (err) => {
       this.error = true;

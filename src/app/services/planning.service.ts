@@ -16,7 +16,11 @@ export class PlanningService implements IPlanningService {
   ) { }
 
   getPlanningForDate(date: Date): Observable<PlanningModel[]> {
-    throw new Error("Method not implemented.");
+    return this._http.get<PlanningModel[]>("http://localhost:9000/api/plannings", {
+      params: {
+        date: date.toString()
+      }
+    });
   }
 
   getPlanningForDateAndMenuType(date: Date, menuType: MENU_TYPE_ENUM): Observable<PlanningModel[]> {

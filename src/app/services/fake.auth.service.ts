@@ -7,7 +7,7 @@ import { UserModel } from '../models/user.model';
 
 @Injectable()
 export class FakeAuthService implements IAuthService {
-  
+
   constructor(
     private _http: HttpClient
   ) { }
@@ -28,13 +28,13 @@ export class FakeAuthService implements IAuthService {
         sub.complete();
       });
     }
-    
+
     return new Observable(sub => {
       sub.error(false);
       sub.complete();
     });
   }
-  
+
   register(user: UserModel): Observable<any> {
     throw new Error("Method not implemented.");
   }

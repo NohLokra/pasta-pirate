@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { IAuthService } from './auth.interface';
 import { Observable } from 'rxjs/Observable';
@@ -14,9 +14,6 @@ export class AuthService implements IAuthService {
 
   login(email: string, password: string): Observable<any> {
     return this._http.post("http://localhost:9000/api/auth", null, {
-      params: {
-        access_token: "masterkey"
-      },
       headers: {
         "Authorization": "Basic " + btoa(email + ":" + password)
       }
@@ -25,5 +22,13 @@ export class AuthService implements IAuthService {
 
   register(user: UserModel): Observable<any> {
     throw new Error("Method not implemented.");
+    // let params = new HttpParams();
+    // for ( var index in user ) {
+    //   console.log(user[index]);
+    // }
+    //
+    // return this._http.post("http://localhost:9000/api/users", null, {
+    //   params: user
+    // });
   }
 }
