@@ -7,15 +7,22 @@ import { UserModel } from '../models/user.model';
 
 @Injectable()
 export class AuthService implements IAuthService {
-  
+
   constructor(
     private _http: HttpClient
   ) { }
 
   login(email: string, password: string): Observable<any> {
-    throw new Error("Method not implemented.");
+    return this._http.post("http://localhost:9000/api/auth", null, {
+      params: {
+        access_token: "masterkey"
+      },
+      headers: {
+        "Authorization": "Basic " + btoa(email + ":" + password)
+      }
+    });
   }
-  
+
   register(user: UserModel): Observable<any> {
     throw new Error("Method not implemented.");
   }

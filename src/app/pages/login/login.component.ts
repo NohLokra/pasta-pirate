@@ -11,6 +11,7 @@ export class LoginPageComponent implements OnInit {
 
   email: string = "admin@pirate.com";
   password: string = "password";
+  error: boolean = false;
 
   constructor(
     private _authService: AuthService,
@@ -21,10 +22,14 @@ export class LoginPageComponent implements OnInit {
   }
 
   login() {
-    this._authService.login(this.email, this.password).subscribe(data => {
+    this.error = false;
+
+    this._authService.login(this.email.toLowerCase(), this.password).subscribe(data => {
+      this.error = false;
       this._router.navigate(['/']);
     }, (err) => {
-      console.log("Raté");
+      this.error = true;
+      console.error("Raté");
     });
   }
 

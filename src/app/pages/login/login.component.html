@@ -10,7 +10,10 @@
             </div>
             <div class="form-group">
               <label>Mot de passe pirate:</label>
-              <input type="password" class="form-control" placeholder="P@ssw0rrrrrrrrrrd!" [(ngModel)]="password" name="password">
+              <input type="password" [ngClass]="{'form-control': true, 'is-invalid': error}" placeholder="P@ssw0rrrrrrrrrrd!" [(ngModel)]="password" name="password">
+              <div class="invalid-feedback" *ngIf="error">
+                Nom d'une pipe ! C't'un échec... Rentente de te connecter moussaillon !
+              </div>
             </div>
             <button type="submit" class="btn btn-primary float-right" (click)="login()">Monter à bord</button>
           </form>

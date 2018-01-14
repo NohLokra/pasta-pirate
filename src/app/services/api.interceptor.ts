@@ -19,7 +19,7 @@ export class ApiInterceptor implements HttpInterceptor {
 		);
 
 		if ( !isApiDataEndpoint ) {
-			next.handle(req);
+			return next.handle(req);
 		} else {
 			let access_token = localStorage.getItem("access_token");
 
@@ -35,9 +35,14 @@ export class ApiInterceptor implements HttpInterceptor {
 			return next.handle(resultRequest).do((event: HttpEvent<any>) => {
 				// L'API nous renvoie un résultat de forme différente que ce que l'on trouve dans les fakeDataService
 				// Ici on fait un sorte de respecter le format attendu
-				if (event instanceof HttpResponse) {
-					event.body = event.body.rows;
+				if (event instanceof HttpResponse ) {
+					let resultEvent = event.clone({
+						body: event.body.rows
+					});
+					return resultEvent;
 				}
+
+				return event;
 			}, (err: any) => {
 				if (err instanceof HttpErrorResponse) {
 					if (err.status === 401) {

@@ -25,24 +25,28 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
-import { RecipeService } from './services/recipe.service';
+
 import { FakeRecipeService } from './services/fake.recipe.service';
-import { ShoppingListService } from './services/shopping-list.service';
 import { FakeShoppingListService } from './services/fake.shopping-list.service';
-import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
+import { FakePlanningService } from './services/fake.planning.service';
+import { FakeAlimentService } from './services/fake.aliment.service';
+import { FakeAuthService } from './services/fake.auth.service';
+
+import { RecipeService } from './services/recipe.service';
+import { ShoppingListService } from './services/shopping-list.service';
+import { PlanningService } from './services/planning.service';
+import { AlimentService } from './services/aliment.service';
+import { AuthService } from './services/auth.service';
+
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { PlanningComponent } from './components/planning/planning.component';
 import { StockComponent } from './components/stock/stock.component';
-import { PlanningService } from './services/planning.service';
-import { FakePlanningService } from './services/fake.planning.service';
 import { RealRecipeTimePipe } from './pipes/real-recipe-time.pipe';
-import { FakeAlimentService } from './services/fake.aliment.service';
-import { AlimentService } from './services/aliment.service';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { IngredientsPipe } from './pipes/ingredients.pipe';
 import { MenuTypePipe } from './pipes/menu-type.pipe';
-import { AuthService } from './services/auth.service';
-import { FakeAuthService } from './services/fake.auth.service';
+
 import { ApiInterceptor } from './services/api.interceptor';
 
 @NgModule({
@@ -83,7 +87,7 @@ import { ApiInterceptor } from './services/api.interceptor';
     {provide: ShoppingListService, useClass: FakeShoppingListService},
     {provide: PlanningService, useClass: FakePlanningService},
     {provide: AlimentService, useClass: AlimentService},
-    {provide: AuthService, useClass: FakeAuthService},
+    {provide: AuthService, useClass: AuthService},
     {provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
