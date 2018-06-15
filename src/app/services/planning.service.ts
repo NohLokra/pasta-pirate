@@ -31,8 +31,7 @@ export class PlanningService implements IPlanningService {
     let result = new Observable<PlanningModel[]>();
 
     for ( let i = 0 ; i < numberOfDays ; i++ ) {
-      let request = this._http.get("http://localhost:9000/api/plannings")
-      result = Rx.Observable.merge(result, request);
+      let request = this._http.get("http://localhost:9000/api/plannings");
     }
 
     return result;
